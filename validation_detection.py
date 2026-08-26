@@ -195,12 +195,101 @@ for type_fraude, r in resultats.items():
     total_fp += r["faux_positifs"]
 
 print("\n" + "─" * 70)
-print("  BILAN GLOBAL")
+print("  BILAN GLOBAL (règles classiques)")
 print("─" * 70)
 print(f"  Cas injectés total        : {total_injectes}")
 print(f"  Cas détectés total        : {total_detectes}")
 print(f"  Taux de détection global  : {total_detectes / total_injectes * 100:.1f}%")
 print(f"  Tx flaguées total         : {total_flagués:,}")
 print(f"  Faux positifs total       : {total_fp:,}")
-print(f"  Taux faux positifs global : {total_fp / total_flagués * 100:.1f}%")
+if total_flagués > 0:
+    print(f"  Taux faux positifs global : {total_fp / total_flagués * 100:.1f}%")
 print("=" * 70)
+
+# =====================================================================
+# VALIDATION DES FRAUDES MULTI-SIGNAUX
+# =====================================================================
+# Ces cas sont conçus pour ÉCHAPPER aux 4 règles existantes (score ≤ 1).
+# On vérifie ici que c'est bien le cas.
+
+multi_types = journal[journal["type_fraude"].str.startswith("Multi-signaux")]
+
+if len(multi_types) > 0:
+    print("\n" + "=" * 70)
+    print("  VALIDATION MULTI-SIGNAUX (doivent échapper aux règles)")
+    print("=" * 70)
+
+    colonnes_regles = [
+        "regle_rib_partage",
+        "regle_montant_anormal",
+        "regle_doublon_facture",
+        "regle_creation_tardive",
+    ]
+
+    total_multi_cas = 0
+    total_multi_invisible = 0
+
+    for type_multi, cas_multi in multi_types.groupby("type_fraude"):
+        nb_cas = len(cas_multi)
+        total_multi_cas += nb_cas
+
+        # Toutes les références sont des FRS-XXXXX
+        frs_multi = set(cas_multi["reference"].astype(str))
+
+        # Récupérer les transactions de ces fournisseurs
+        tx_multi = scorees[scorees["id_fournisseur"].isin(frs_multi)].copy()
+
+        if len(tx_multi) == 0:
+            print(f"\n  📋 {type_multi}")
+            print(f"     Cas injectés : {nb_cas}")
+            print(f"     ⚠ Aucune transaction trouvée pour ces fournisseurs")
+            continue
+
+        # Distribution des scores
+        score_dist = tx_multi["score_risque"].value_counts().sort_index()
+        nb_score_0 = int(tx_multi["score_risque"].eq(0).sum())
+        nb_score_1 = int(tx_multi["score_risque"].eq(1).sum())
+        nb_score_2plus = int(tx_multi["score_risque"].ge(2).sum())
+        nb_invisible = nb_score_0 + nb_score_1  # score ≤ 1 = invisible aux règles
+
+        # Pourcentage de fournisseurs dont AUCUNE transaction n'a score ≥ 2
+        frs_safe = 0
+        for frs_id in frs_multi:
+            tx_f = tx_multi[tx_multi["id_fournisseur"] == frs_id]
+            if len(tx_f) == 0 or tx_f["score_risque"].max() <= 1:
+                frs_safe += 1
+        total_multi_invisible += frs_safe
+
+        # Détail par règle : combien de transactions flaguées
+        regles_touchees = {}
+        for col in colonnes_regles:
+            n_flag = int(tx_multi[col].sum())
+            if n_flag > 0:
+                regles_touchees[col.replace("regle_", "")] = n_flag
+
+        print(f"\n  📋 {type_multi}")
+        print(f"     Cas injectés (fournisseurs)    : {nb_cas}")
+        print(f"     Transactions associées          : {len(tx_multi):,}")
+        print(f"     Score = 0                       : {nb_score_0:,} ({nb_score_0/len(tx_multi)*100:.1f}%)")
+        print(f"     Score = 1                       : {nb_score_1:,} ({nb_score_1/len(tx_multi)*100:.1f}%)")
+        print(f"     Score ≥ 2 (DÉTECTÉES ⚠)        : {nb_score_2plus:,} ({nb_score_2plus/len(tx_multi)*100:.1f}%)")
+        print(f"     FRS 100% invisibles (score ≤ 1) : {frs_safe}/{nb_cas}")
+        if regles_touchees:
+            print(f"     Règles touchées                 : {regles_touchees}")
+        else:
+            print(f"     Règles touchées                 : aucune ✅")
+
+    print("\n" + "─" * 70)
+    print("  BILAN MULTI-SIGNAUX")
+    print("─" * 70)
+    print(f"  Total cas multi-signaux        : {total_multi_cas}")
+    print(f"  FRS 100% invisibles (score ≤ 1): {total_multi_invisible}/{total_multi_cas}")
+    taux_evasion = total_multi_invisible / total_multi_cas * 100 if total_multi_cas else 0
+    print(f"  Taux d'évasion                 : {taux_evasion:.1f}%")
+    if taux_evasion >= 90:
+        print(f"  ✅ SUCCÈS : les cas multi-signaux échappent aux règles existantes")
+    else:
+        print(f"  ⚠ ATTENTION : {total_multi_cas - total_multi_invisible} cas détectés, "
+              f"ajuster les paramètres")
+    print("=" * 70)
+
