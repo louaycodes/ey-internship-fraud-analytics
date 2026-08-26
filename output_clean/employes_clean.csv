@@ -1,0 +1,26 @@
+id_employe,nom_employe,poste,adresse_personnelle,telephone,date_embauche
+EMP-001,Amine Sassi,Assistant Comptable,"19 Rue de Marseille, Gabès",+216 28 189 704,2020-07-03
+EMP-002,Rim Ben Ali,Comptable Fournisseurs,"31 Avenue de Carthage, Kairouan",+216 20 674 303,2020-06-14
+EMP-003,Sonia Ouertani,Contrôleur de Gestion,"99 Avenue Mohamed V, Gafsa",+216 26 448 384,2018-01-27
+EMP-004,Walid Zoghlami,Comptable Fournisseurs,"50 Rue de Marseille, Bizerte",+216 25 718 370,2019-01-15
+EMP-005,Rami Ouertani,Comptable Fournisseurs,"12 Avenue de Carthage, Nabeul",+216 29 982 470,2022-03-31
+EMP-006,Rami Gharbi,Comptable Fournisseurs,"100 Avenue de la Liberté, Ariana",+216 23 987 203,2020-07-22
+EMP-007,Hela Ouertani,Directeur Administratif et Financier,"49 Rue Charles de Gaulle, Sousse",+216 24 818 799,2019-10-29
+EMP-008,Bilel Khelifi,Assistant Comptable,"61 Avenue Taïeb Mhiri, Nabeul",+216 28 324 801,2019-11-01
+EMP-009,Rim Cherif,Comptable Fournisseurs,"53 Avenue de la Liberté, Ariana",+216 23 680 997,2021-07-16
+EMP-010,Sonia Hamdi,Responsable Achats,"20 Avenue de la Liberté, Sfax",+216 23 862 674,2023-02-23
+EMP-011,Wided Bahri,Responsable Achats,"53 Rue Charles de Gaulle, Sousse",+216 22 621 605,2024-07-18
+EMP-012,Anis Trabelsi,Comptable Fournisseurs,"82 Avenue Mohamed V, La Marsa",+216 26 710 165,2019-09-19
+EMP-013,Ines Guesmi,Assistant Achats,"34 Avenue de Carthage, Menzah",+216 20 796 838,2023-12-08
+EMP-014,Mehdi Souissi,Contrôleur de Gestion,"16 Avenue de la Liberté, Monastir",+216 22 564 103,2021-10-25
+EMP-015,Yosra Khelifi,Comptable Fournisseurs,"109 Avenue de Carthage, Kairouan",+216 23 256 482,2021-05-07
+EMP-016,Youssef Ferjani,Comptable Fournisseurs,"43 Rue Ibn Khaldoun, Tunis",+216 21 471 999,2024-09-19
+EMP-017,Sonia Trabelsi,Assistant Comptable,"12 Rue de Marseille, Gafsa",+216 27 935 170,2024-05-12
+EMP-018,Sami Hamdi,Responsable Comptabilité,"69 Avenue Taïeb Mhiri, Sousse",+216 28 873 847,2020-12-21
+EMP-019,Rami Ayari,Responsable Achats,"58 Avenue de Carthage, Ben Arous",+216 21 353 330,2022-03-10
+EMP-020,Hichem Ben Ali,Assistant Comptable,"30 Avenue Habib Bourguiba, Ariana",+216 20 334 169,2024-08-07
+EMP-021,Tarek Zoghlami,Comptable Fournisseurs,"32 Avenue de la Liberté, Gabès",+216 27 319 652,2023-10-07
+EMP-022,Rami Bahri,Assistant Achats,"102 Rue Ibn Khaldoun, La Marsa",+216 26 294 196,2020-09-22
+EMP-023,Mehdi Belhaj,Directeur Administratif et Financier,"54 Rue Ibn Khaldoun, Menzah",+216 20 789 769,2022-10-01
+EMP-024,Amine Nasri,Directeur Administratif et Financier,"33 Rue du Lac Léman, Sousse",+216 28 559 243,2019-03-24
+EMP-025,Amira Sassi,Assistant Achats,"113 Rue de Marseille, Ben Arous",+216 28 200 151,2020-10-20

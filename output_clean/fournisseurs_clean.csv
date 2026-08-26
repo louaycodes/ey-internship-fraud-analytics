@@ -1,0 +1,151 @@
+id_fournisseur,nom_fournisseur,rib_iban,adresse,telephone,date_creation_fournisseur,statut_fournisseur,pays,rib_iban_normalise,nom_normalise
+FRS-00001,Electro Plus,TN59 0318 6265 9693 9007 9389,"109 Avenue Habib Bourguiba, Ariana",+216 23 270 516,2024-08-10,Actif,Tunisie,TN5903186265969390079389,electro plus
+FRS-00002,Tunisie Composants,TN59 8963 2247 2991 6803 3060,"117 Avenue Habib Bourguiba, Sfax",+216 26 102 499,2024-08-01,Actif,Tunisie,TN5989632247299168033060,tunisie composants
+FRS-00003,Maghreb Electronics,TN59 7853 7787 6051 7878 1459,"38 Avenue Taïeb Mhiri, Gafsa",+216 28 777 835,2024-08-05,Actif,Tunisie,TN5978537787605178781459,maghreb electronics
+FRS-00004,Distrilec,TN59 6198 8335 0295 1830 2022,"Adresse internationale, Chine",+216 29 853 655,2024-07-10,Actif,Chine,TN5961988335029518302022,distrilec
+FRS-00005,SOTEL Distribution,TN59 7686 9458 2719 5530 9040,"76 Rue Ibn Khaldoun, Manouba",+216 28 261 158,2024-07-10,Inactif,Tunisie,TN5976869458271955309040,sotel distribution
+FRS-00006,High Tech Import,TN59 5037 0395 0384 2916 0404,"Adresse internationale, Chine",+216 29 169 791,2024-07-11,Actif,Chine,TN5950370395038429160404,high tech import
+FRS-00007,Elec Import Export,TN59 0924 2380 3807 9490 0633,"74 Rue du Lac Léman, Kairouan",+216 29 140 734,2024-09-01,Actif,Tunisie,TN5909242380380794900633,elec import export
+FRS-00008,Digital Store Pro,TN59 8751 1029 1950 8543 7280,"68 Rue Charles de Gaulle, Nabeul",+216 23 785 833,2024-08-12,Actif,Tunisie,TN5987511029195085437280,digital store pro
+FRS-00009,Confort Electromenager,TN59 2071 8728 3341 0339 1728,"87 Avenue de la Liberté, Ben Arous",+216 25 869 174,2026-05-19,Actif,Tunisie,TN5920718728334103391728,confort electromenager
+FRS-00010,Star Elec,TN59 9381 6662 2631 8854 9267,"14 Rue de Marseille, Manouba",+216 23 618 371,2024-08-12,Actif,Tunisie,TN5993816662263188549267,star elec
+FRS-00011,Nord Electronique,TN59 1826 1961 4649 9563 4045,"114 Rue du Lac Léman, Bizerte",+216 24 261 548,2024-07-11,Actif,Tunisie,TN5918261961464995634045,nord electronique
+FRS-00012,Sud Distribution Tech,TN59 5226 3905 4689 3276 0671,"105 Avenue de Carthage, Tunis",+216 28 406 779,2024-08-15,Actif,Tunisie,TN5952263905468932760671,sud distribution tech
+FRS-00013,Cap Bon Electric,TN59 7429 9060 6340 5197 5134,"16 Rue de Marseille, Gafsa",+216 28 259 378,2024-07-23,Actif,Tunisie,TN5974299060634051975134,cap bon electric
+FRS-00014,Carthage Electronics,TN59 8034 0669 9278 7469 7103,"28 Avenue de la Liberté, Manouba",+216 27 357 966,2024-07-28,Actif,Tunisie,TN5980340669927874697103,carthage electronics
+FRS-00015,Medina Tech,TN59 1478 6469 4790 9167 6853,"37 Avenue Habib Bourguiba, Tunis",+216 25 889 233,2024-08-29,Actif,Tunisie,TN5914786469479091676853,medina tech
+FRS-00016,Atlas Composants,TN59 5685 8215 7078 7986 9297,"58 Avenue de Carthage, Gafsa",+216 26 674 109,2024-08-23,Actif,Tunisie,TN5956858215707879869297,atlas composants
+FRS-00017,Blue Wave Import,TN59 7631 5414 4047 8697 9548,"117 Avenue Mohamed V, Manouba",+216 20 954 478,2025-12-07,Actif,Tunisie,TN5976315414404786979548,blue wave import
+FRS-00018,Silver Tech Distribution,TN59 7904 5999 2362 1135 3632,"Adresse internationale, Chine",+216 24 473 915,2024-07-09,Inactif,Chine,TN5979045999236211353632,silver tech distribution
+FRS-00019,Golden Electro,TN59 0531 3798 3466 4434 1560,"Adresse internationale, Allemagne",+216 23 782 205,2024-07-20,Actif,Allemagne,TN5905313798346644341560,golden electro
+FRS-00020,Prime Electronics,TN59 1076 9242 9456 8844 6072,"54 Avenue Mohamed V, Sousse",+216 22 919 930,2024-08-31,Actif,Tunisie,TN5910769242945688446072,prime electronics
+FRS-00021,Delta Import,TN59 8829 3486 9665 1174 2690,"96 Rue Charles de Gaulle, La Marsa",+216 26 921 785,2025-05-04,Actif,Tunisie,TN5988293486966511742690,delta import
+FRS-00022,Zenith Distribution,TN59 2695 1681 5360 4746 5126,"22 Rue de Marseille, Monastir",+216 20 979 581,2024-07-24,Actif,Tunisie,TN5926951681536047465126,zenith distribution
+FRS-00023,Horizon Tech,TN59 7772 6406 5556 6418 4718,"46 Avenue de la Liberté, Menzah",+216 23 328 124,2024-08-05,Actif,Tunisie,TN5977726406555664184718,horizon tech
+FRS-00024,Ellipse Electro,TN59 0805 9600 0378 3744 5636,"112 Rue de Marseille, La Marsa",+216 24 459 756,2024-07-24,Actif,Tunisie,TN5908059600037837445636,ellipse electro
+FRS-00025,Continental Import,TN59 0805 9600 0378 3744 5636,"70 Rue Charles de Gaulle, Tunis",+216 21 998 367,2025-03-09,Actif,Tunisie,TN5908059600037837445636,continental import
+FRS-00026,Universal Composants,TN59 0746 4396 7858 8117 5493,"6 Rue de Marseille, Kairouan",+216 26 453 846,2024-07-23,Actif,Tunisie,TN5907464396785881175493,universal composants
+FRS-00027,Rapid Elec Services,TN59 0118 7309 6808 8099 4547,"16 Avenue Taïeb Mhiri, Kairouan",+216 23 360 145,2024-08-08,Actif,Tunisie,TN5901187309680880994547,rapid elec services
+FRS-00028,Modern Home Tech,TN59 7964 3758 6300 1139 1115,"Adresse internationale, Turquie",+216 23 472 541,2024-08-19,Actif,Turquie,TN5979643758630011391115,modern home tech
+FRS-00029,General Sud Distribution Tech,TN59 9498 2888 6465 1454 6875,"81 Rue Charles de Gaulle, Gabès",+216 21 837 407,2024-07-28,Actif,Tunisie,TN5994982888646514546875,general sud distribution tech
+FRS-00030,Espace SOTEL Distribution,TN59 8034 0669 9278 7469 7103,"53 Avenue de la Liberté, Manouba",+216 22 296 530,2024-07-27,Actif,Tunisie,TN5980340669927874697103,espace sotel distribution
+FRS-00031,General Universal Composants,TN59 9800 5505 4767 5072 0239,"117 Avenue Mohamed V, Kairouan",+216 29 408 515,2024-08-23,Actif,Tunisie,TN5998005505476750720239,general universal composants
+FRS-00032,General Zenith Distribution,TN59 6862 5374 3050 3466 2854,"Adresse internationale, Allemagne",+216 26 904 693,2026-08-11,Actif,Allemagne,TN5968625374305034662854,general zenith distribution
+FRS-00033,Cristal Confort Electromenager,TN59 3471 1306 6221 2602 7617,"58 Rue du Lac Léman, Manouba",+216 27 912 915,2024-08-04,Actif,Tunisie,TN5934711306622126027617,cristal confort electromenager
+FRS-00034,National High Tech Import,TN59 0111 6136 3255 0204 9737,"67 Rue Charles de Gaulle, Ariana",+216 23 788 417,2024-07-25,Actif,Tunisie,TN5901116136325502049737,national high tech import
+FRS-00035,Panorama Digital Store Pro,TN59 7242 1060 8343 0564 9532,"Adresse internationale, France",+216 23 586 725,2024-11-08,Actif,France,TN5972421060834305649532,panorama digital store pro
+FRS-00036,Groupe Continental Import,TN59 6110 1572 0559 1984 7429,"Adresse internationale, Italie",+216 29 299 835,2024-09-01,Actif,Italie,TN5961101572055919847429,groupe continental import
+FRS-00037,Fast Track High Tech Import,TN59 1771 0054 9329 0824 0815,"20 Avenue Habib Bourguiba, La Marsa",+216 21 897 535,2024-07-22,Actif,Tunisie,TN5917710054932908240815,fast track high tech import
+FRS-00038,Smart Home SOTEL Distribution,TN59 1142 1570 7720 0944 1816,"68 Rue Ibn Khaldoun, Tunis",+216 28 355 968,2024-08-20,Actif,Tunisie,TN5911421570772009441816,smart home sotel distribution
+FRS-00039,Nouvelle Vague Elec Import Export,TN59 2310 3612 2020 1509 8484,"Adresse internationale, Italie",+216 28 672 709,2024-08-18,Actif,Italie,TN5923103612202015098484,nouvelle vague elec import export
+FRS-00040,Techno Modern Home Tech,TN59 4293 5404 9549 2963 3508,"80 Avenue de Carthage, Monastir",+216 28 556 262,2026-02-28,Actif,Tunisie,TN5942935404954929633508,techno modern home tech
+FRS-00041,Africa SOTEL Distribution,TN59 1344 6383 8930 1964 4968,"98 Rue du Lac Léman, Menzah",+216 24 884 896,2024-07-23,Actif,Tunisie,TN5913446383893019644968,africa sotel distribution
+FRS-00042,Premium Atlas Composants,TN59 3250 5476 4277 2528 7401,"58 Rue de Marseille, Gafsa",+216 24 340 378,2024-07-24,Actif,Tunisie,TN5932505476427725287401,premium atlas composants
+FRS-00043,Fast Track Star Elec,TN59 9557 3305 4237 4416 6539,"19 Avenue Mohamed V, Sousse",+216 26 810 256,2024-07-12,Actif,Tunisie,TN5995573305423744166539,fast track star elec
+FRS-00044,Magenta Tunisie Composants,TN59 3577 9032 2837 8005 0824,"Adresse internationale, Italie",+216 28 577 525,2024-07-28,Actif,Italie,TN5935779032283780050824,magenta tunisie composants
+FRS-00045,Smart Home Electro Plus,TN59 1159 3676 6194 4828 2625,"117 Avenue Habib Bourguiba, Menzah",+216 29 489 588,2024-07-31,Actif,Tunisie,TN5911593676619448282625,smart home electro plus
+FRS-00046,Société Tunisie Composants,TN59 7971 5532 0214 4368 5936,"51 Avenue Taïeb Mhiri, Manouba",+216 28 919 717,2024-08-24,Actif,Tunisie,TN5979715532021443685936,société tunisie composants
+FRS-00047,Smart Home Elec Import Export,TN59 1464 7672 5832 1118 1957,"57 Rue Ibn Khaldoun, Tunis",+216 26 444 784,2024-07-24,Actif,Tunisie,TN5914647672583211181957,smart home elec import export
+FRS-00048,Excellence Universal Composants,TN59 4423 0143 6176 3160 6227,"109 Rue Ibn Khaldoun, Sfax",+216 29 646 127,2024-07-17,Inactif,Tunisie,TN5944230143617631606227,excellence universal composants
+FRS-00049,Méditerranée Sud Distribution Tech,TN59 9703 7584 9200 1141 3305,"5 Rue de Marseille, Gabès",+216 26 238 987,2024-08-18,Actif,Tunisie,TN5997037584920011413305,méditerranée sud distribution tech
+FRS-00050,Central Atlas Composants,TN59 5967 5102 6066 8596 1187,"Adresse internationale, Italie",+216 23 565 434,2024-07-27,Actif,Italie,TN5959675102606685961187,central atlas composants
+FRS-00051,Espace Sud Distribution Tech,TN59 0147 2470 1732 7669 3786,"98 Avenue Taïeb Mhiri, Nabeul",+216 21 581 119,2024-07-24,Actif,Tunisie,TN5901472470173276693786,espace sud distribution tech
+FRS-00052,Espace High Tech Import,TN59 2152 7734 0727 4964 8466,"Adresse internationale, Allemagne",+216 21 899 767,2024-07-21,Actif,Allemagne,TN5921527734072749648466,espace high tech import
+FRS-00053,Fast Track Tunisie Composants,TN59 5553 5695 1827 0331 0650,"Adresse internationale, Chine",+216 20 736 256,2024-07-19,Actif,Chine,TN5955535695182703310650,fast track tunisie composants
+FRS-00054,Société Carthage Electronics,TN59 1809 8325 7949 0332 2566,"74 Rue du Lac Léman, Ben Arous",+216 24 885 477,2025-12-07,Actif,Tunisie,TN5918098325794903322566,société carthage electronics
+FRS-00055,Comptoir Digital Store Pro,TN59 1159 3676 6194 4828 2625,"93 Rue de Marseille, La Marsa",+216 22 418 210,2024-08-23,Actif,Tunisie,TN5911593676619448282625,comptoir digital store pro
+FRS-00056,Trans Ellipse Electro,TN59 1253 5793 9861 7193 6778,"88 Avenue Taïeb Mhiri, Monastir",+216 23 177 706,2024-08-12,Actif,Tunisie,TN5912535793986171936778,trans ellipse electro
+FRS-00057,Atelier Carthage Electronics,TN59 8826 5339 6405 7167 8950,"91 Avenue de la Liberté, Menzah",+216 29 924 223,2025-07-10,Actif,Tunisie,TN5988265339640571678950,atelier carthage electronics
+FRS-00058,Central Star Elec,TN59 4923 1872 3011 1711 8817,"46 Avenue de Carthage, Monastir",+216 25 170 618,2024-07-09,Actif,Tunisie,TN5949231872301117118817,central star elec
+FRS-00059,Smart Home Continental Import,TN59 0191 3906 4108 0983 3664,"Adresse internationale, Italie",+216 27 208 543,2026-01-21,Inactif,Italie,TN5901913906410809833664,smart home continental import
+FRS-00060,General Prime Electronics,TN59 3300 2219 2415 8052 8631,"60 Avenue Mohamed V, Monastir",+216 22 851 634,2024-08-29,Inactif,Tunisie,TN5933002219241580528631,general prime electronics
+FRS-00061,Alpha Zenith Distribution,TN59 8552 6581 0625 5674 8457,"119 Avenue de Carthage, La Marsa",+216 27 576 546,2024-08-27,Actif,Tunisie,TN5985526581062556748457,alpha zenith distribution
+FRS-00062,Cristal Digital Store Pro,TN59 1358 1087 1081 1658 5688,"111 Rue du Lac Léman, Menzah",+216 21 385 561,2025-10-04,Actif,Tunisie,TN5913581087108116585688,cristal digital store pro
+FRS-00063,General Horizon Tech,TN59 3286 8993 9565 9651 8003,"87 Avenue Taïeb Mhiri, Bizerte",+216 20 606 971,2024-08-15,Actif,Tunisie,TN5932868993956596518003,general horizon tech
+FRS-00064,Oasis Atlas Composants,TN59 3905 8371 2214 5752 6038,"104 Avenue de la Liberté, Bizerte",+216 24 710 818,2025-06-25,Actif,Tunisie,TN5939058371221457526038,oasis atlas composants
+FRS-00065,Comptoir Distrilec,TN59 9170 0294 9272 7336 7404,"26 Rue de Marseille, Sousse",+216 26 600 668,2024-08-09,Actif,Tunisie,TN5991700294927273367404,comptoir distrilec
+FRS-00066,Groupe Rapid Elec Services,TN59 7879 6884 8920 6874 8562,"93 Rue Ibn Khaldoun, Ben Arous",+216 20 195 401,2025-07-14,Actif,Tunisie,TN5978796884892068748562,groupe rapid elec services
+FRS-00067,Cristal Atlas Composants,TN59 0462 4857 7825 3747 9951,"86 Rue Charles de Gaulle, Ben Arous",+216 28 643 452,2024-07-26,Actif,Tunisie,TN5904624857782537479951,cristal atlas composants
+FRS-00068,Africa Sud Distribution Tech,TN59 6198 8335 0295 1830 2022,"47 Rue Ibn Khaldoun, Nabeul",+216 24 357 336,2024-07-28,Actif,Tunisie,TN5961988335029518302022,africa sud distribution tech
+FRS-00069,Panorama Modern Home Tech,TN59 5298 7118 2773 6287 0836,"Adresse internationale, France",+216 28 880 806,2024-08-23,Actif,France,TN5952987118277362870836,panorama modern home tech
+FRS-00070,Premium High Tech Import,TN59 5170 5236 1386 4962 1788,"37 Avenue de Carthage, Kairouan",+216 24 202 952,2024-11-28,Actif,Tunisie,TN5951705236138649621788,premium high tech import
+FRS-00071,Central Cap Bon Electric,TN59 1478 6469 4790 9167 6853,"40 Avenue Habib Bourguiba, Gafsa",+216 28 229 380,2024-07-18,Actif,Tunisie,TN5914786469479091676853,central cap bon electric
+FRS-00072,Alpha Digital Store Pro,TN59 7609 6431 7216 9979 7254,"Adresse internationale, Allemagne",+216 22 753 989,2024-08-20,Actif,Allemagne,TN5976096431721699797254,alpha digital store pro
+FRS-00073,Central Nord Electronique,TN59 5059 1890 7632 0141 5230,"Adresse internationale, France",+216 24 580 590,2024-08-12,Actif,France,TN5950591890763201415230,central nord electronique
+FRS-00074,Société Ellipse Electro,TN59 7391 0649 6187 4697 1909,"Adresse internationale, France",+216 27 216 941,2024-07-23,Actif,France,TN5973910649618746971909,société ellipse electro
+FRS-00075,Trans Cap Bon Electric,TN59 6030 8489 2551 0722 7453,"82 Avenue Habib Bourguiba, Sfax",+216 22 930 676,2024-08-12,Inactif,Tunisie,TN5960308489255107227453,trans cap bon electric
+FRS-00076,Techno Blue Wave Import,TN59 5207 9407 8299 3154 5305,"Adresse internationale, Chine",+216 28 882 526,2024-07-14,Actif,Chine,TN5952079407829931545305,techno blue wave import
+FRS-00077,Techno SOTEL Distribution,TN59 0355 7356 9736 7618 9585,"101 Avenue de Carthage, Monastir",+216 27 553 404,2024-07-21,Actif,Tunisie,TN5903557356973676189585,techno sotel distribution
+FRS-00078,Africa Atlas Composants,TN59 1276 4047 1643 3642 1647,"74 Avenue Habib Bourguiba, Kairouan",+216 21 881 312,2024-07-26,Actif,Tunisie,TN5912764047164336421647,africa atlas composants
+FRS-00079,Beta SOTEL Distribution,TN59 8702 9927 9659 7769 2533,"22 Rue du Lac Léman, Sfax",+216 28 176 260,2024-07-12,Actif,Tunisie,TN5987029927965977692533,beta sotel distribution
+FRS-00080,Groupe Ellipse Electro,TN59 7841 2636 5551 2354 8854,"62 Avenue de la Liberté, Tunis",+216 23 395 823,2024-08-14,Actif,Tunisie,TN5978412636555123548854,groupe ellipse electro
+FRS-00081,Excellence Electro Plus,TN59 0318 6265 9693 9007 9389,"89 Rue du Lac Léman, Nabeul",+216 29 777 923,2024-12-16,Inactif,Tunisie,TN5903186265969390079389,excellence electro plus
+FRS-00082,Nouvelle Vague Tunisie Composants,TN59 3880 7440 1720 2781 7451,"30 Avenue Mohamed V, Nabeul",+216 22 173 161,2024-08-10,Actif,Tunisie,TN5938807440172027817451,nouvelle vague tunisie composants
+FRS-00083,Fast Track Cap Bon Electric,TN59 3475 5323 7419 4677 9151,"107 Avenue de la Liberté, Ben Arous",+216 21 579 805,2024-08-23,Actif,Tunisie,TN5934755323741946779151,fast track cap bon electric
+FRS-00084,Nouvelle Vague Delta Import,TN59 0667 3831 8974 9897 5722,"66 Avenue de Carthage, Ben Arous",+216 27 182 712,2024-07-24,Actif,Tunisie,TN5906673831897498975722,nouvelle vague delta import
+FRS-00085,Espace Rapid Elec Services,TN59 9849 1152 1100 5667 3219,"79 Avenue de la Liberté, Tunis",+216 21 334 790,2024-07-27,Actif,Tunisie,TN5998491152110056673219,espace rapid elec services
+FRS-00086,Smart Home Prime Electronics,TN59 9657 2593 4787 3510 6367,"99 Avenue de la Liberté, Kairouan",+216 20 881 874,2024-07-08,Actif,Tunisie,TN5996572593478735106367,smart home prime electronics
+FRS-00087,Africa Digital Store Pro,TN59 3046 3530 9437 7232 6626,"119 Avenue de la Liberté, Sfax",+216 29 546 750,2024-08-04,Actif,Tunisie,TN5930463530943772326626,africa digital store pro
+FRS-00088,General Star Elec,TN59 8875 6254 5584 1532 1045,"46 Avenue Taïeb Mhiri, Bizerte",+216 25 786 207,2024-08-06,Actif,Tunisie,TN5988756254558415321045,general star elec
+FRS-00089,Central Universal Composants,TN59 5789 6752 0110 1080 8280,"65 Avenue de la Liberté, Gabès",+216 26 933 878,2024-08-20,Actif,Tunisie,TN5957896752011010808280,central universal composants
+FRS-00090,Alpha Carthage Electronics,TN59 7265 3191 7095 4491 7889,"34 Rue Charles de Gaulle, Ariana",+216 26 985 626,2025-10-18,Actif,Tunisie,TN5972653191709544917889,alpha carthage electronics
+FRS-00091,Smart Home Confort Electromenager,TN59 5040 5993 9358 8841 7420,"Adresse internationale, Turquie",+216 26 155 292,2024-08-05,Actif,Turquie,TN5950405993935888417420,smart home confort electromenager
+FRS-00092,Excellence Ellipse Electro,TN59 9874 3249 4916 0462 8012,"82 Rue Ibn Khaldoun, La Marsa",+216 20 308 373,2024-08-07,Actif,Tunisie,TN5998743249491604628012,excellence ellipse electro
+FRS-00093,Trans Modern Home Tech,TN59 5965 2707 9882 9183 7529,"114 Rue Ibn Khaldoun, Ariana",+216 20 745 723,2024-08-04,Actif,Tunisie,TN5959652707988291837529,trans modern home tech
+FRS-00094,Beta Medina Tech,TN59 8857 0758 6057 4875 2451,"72 Avenue Habib Bourguiba, Manouba",+216 26 195 330,2024-07-26,Bloqué,Tunisie,TN5988570758605748752451,beta medina tech
+FRS-00095,Premium Blue Wave Import,TN59 3313 9692 8699 7472 5331,"17 Avenue Mohamed V, Ben Arous",+216 24 621 822,2024-08-05,Actif,Tunisie,TN5933139692869974725331,premium blue wave import
+FRS-00096,Alpha Cap Bon Electric,TN59 6167 8144 0682 6831 1737,"33 Rue Ibn Khaldoun, Manouba",+216 22 492 295,2024-08-06,Inactif,Tunisie,TN5961678144068268311737,alpha cap bon electric
+FRS-00097,General SOTEL Distribution,TN59 8106 9789 5883 7846 7322,"19 Rue de Marseille, Nabeul",+216 26 448 906,2024-09-01,Actif,Tunisie,TN5981069789588378467322,general sotel distribution
+FRS-00098,Comptoir Prime Electronics,TN59 2484 9886 3161 4983 5152,"94 Avenue de la Liberté, Menzah",+216 29 693 775,2024-07-25,Actif,Tunisie,TN5924849886316149835152,comptoir prime electronics
+FRS-00099,Nouvelle Vague Zenith Distribution,TN59 6332 7710 8914 5663 4728,"Adresse internationale, Turquie",+216 25 440 665,2024-08-06,Actif,Turquie,TN5963327710891456634728,nouvelle vague zenith distribution
+FRS-00100,Premium Silver Tech Distribution,TN59 0382 0628 3390 8960 7938,"43 Rue du Lac Léman, Gafsa",+216 23 685 492,2024-09-04,Actif,Tunisie,TN5903820628339089607938,premium silver tech distribution
+FRS-00101,Fast Track Distrilec,TN59 5298 7118 2773 6287 0836,"42 Rue Ibn Khaldoun, Gafsa",+216 26 495 779,2024-07-09,Actif,Tunisie,TN5952987118277362870836,fast track distrilec
+FRS-00102,Fast Track Universal Composants,TN59 5298 6623 4249 8747 1414,"65 Avenue Habib Bourguiba, Sfax",+216 28 704 439,2024-07-16,Actif,Tunisie,TN5952986623424987471414,fast track universal composants
+FRS-00103,Méditerranée Prime Electronics,TN59 6772 3122 6865 2491 7257,"14 Avenue de Carthage, Ben Arous",+216 20 839 247,2024-08-04,Actif,Tunisie,TN5967723122686524917257,méditerranée prime electronics
+FRS-00104,Espace Carthage Electronics,TN59 1826 1961 4649 9563 4045,"11 Rue Ibn Khaldoun, La Marsa",+216 24 446 738,2024-07-16,Actif,Tunisie,TN5918261961464995634045,espace carthage electronics
+FRS-00105,Société Digital Store Pro,TN59 0148 1023 8666 2214 0362,"44 Avenue de Carthage, Monastir",+216 25 741 835,2024-08-30,Actif,Tunisie,TN5901481023866622140362,société digital store pro
+FRS-00106,Groupe Tunisie Composants,TN59 7650 7390 3112 4013 8678,"6 Rue de Marseille, Sousse",+216 24 332 864,2024-08-10,Actif,Tunisie,TN5976507390311240138678,groupe tunisie composants
+FRS-00107,Société Electro Plus,TN59 2658 2610 5496 2429 7621,"83 Rue de Marseille, Ben Arous",+216 22 810 406,2024-08-24,Inactif,Tunisie,TN5926582610549624297621,société electro plus
+FRS-00108,Cristal Silver Tech Distribution,TN59 3847 9251 4992 1222 1386,"Adresse internationale, France",+216 25 483 541,2024-07-25,Actif,France,TN5938479251499212221386,cristal silver tech distribution
+FRS-00109,Excellence Medina Tech,TN59 6171 9809 1353 1067 3635,"89 Avenue Mohamed V, Sfax",+216 22 180 724,2024-08-12,Actif,Tunisie,TN5961719809135310673635,excellence medina tech
+FRS-00110,Cristal Zenith Distribution,TN59 7391 0649 6187 4697 1909,"65 Avenue Mohamed V, Sousse",+216 27 753 360,2024-07-22,Actif,Tunisie,TN5973910649618746971909,cristal zenith distribution
+FRS-00111,Cristal Ellipse Electro,TN59 3352 5718 2195 1729 2405,"104 Rue Ibn Khaldoun, Nabeul",+216 28 261 175,2026-04-08,Actif,Tunisie,TN5933525718219517292405,cristal ellipse electro
+FRS-00112,Beta High Tech Import,TN59 4148 0619 5258 1120 3063,"40 Avenue Taïeb Mhiri, Gafsa",+216 24 567 965,2024-08-13,Actif,Tunisie,TN5941480619525811203063,beta high tech import
+FRS-00113,Nouvelle Vague Nord Electronique,TN59 0031 1021 9809 8196 9081,"63 Rue de Marseille, Sousse",+216 26 685 467,2024-08-30,Actif,Tunisie,TN5900311021980981969081,nouvelle vague nord electronique
+FRS-00114,Société Star Elec,TN59 8477 9986 0366 5546 9244,"4 Avenue Taïeb Mhiri, Nabeul",+216 20 679 985,2024-07-25,Actif,Tunisie,TN5984779986036655469244,société star elec
+FRS-00115,Méditerranée Silver Tech Distribution,TN59 4500 3649 0909 3938 9049,"118 Rue Ibn Khaldoun, Menzah",+216 24 894 918,2024-07-10,Actif,Tunisie,TN5945003649090939389049,méditerranée silver tech distribution
+FRS-00116,National Confort Electromenager,TN59 9648 0128 2229 8089 4481,"83 Rue du Lac Léman, Kairouan",+216 24 794 873,2024-07-21,Actif,Tunisie,TN5996480128222980894481,national confort electromenager
+FRS-00117,Smart Home Distrilec,TN59 7804 5659 7449 9356 4329,"19 Rue de Marseille, Gabès",+216 20 416 907,2024-08-29,Actif,Tunisie,TN5978045659744993564329,smart home distrilec
+FRS-00118,Méditerranée Tunisie Composants,TN59 3980 2819 8230 1456 3568,"18 Rue de Marseille, Nabeul",+216 25 865 525,2024-08-22,Actif,Tunisie,TN5939802819823014563568,méditerranée tunisie composants
+FRS-00119,Atelier Nord Electronique,TN59 2071 8728 3341 0339 1728,"Adresse internationale, Turquie",+216 25 643 613,2024-09-01,Inactif,Turquie,TN5920718728334103391728,atelier nord electronique
+FRS-00120,Central Zenith Distribution,TN59 9170 0294 9272 7336 7404,"118 Rue Ibn Khaldoun, La Marsa",+216 24 864 991,2024-07-23,Actif,Tunisie,TN5991700294927273367404,central zenith distribution
+FRS-00121,Central Maghreb Electronics,TN59 9939 0491 5306 1010 0558,"Adresse internationale, France",+216 23 980 792,2025-09-23,Actif,France,TN5999390491530610100558,central maghreb electronics
+FRS-00122,Beta Sud Distribution Tech,TN59 7904 5999 2362 1135 3632,"104 Avenue de Carthage, Bizerte",+216 21 909 504,2024-08-30,Actif,Tunisie,TN5979045999236211353632,beta sud distribution tech
+FRS-00123,Méditerranée Golden Electro,TN59 9355 7547 0122 9697 4052,"49 Avenue de la Liberté, Kairouan",+216 26 942 753,2024-08-05,Inactif,Tunisie,TN5993557547012296974052,méditerranée golden electro
+FRS-00124,Premium Star Elec,TN59 7715 6606 7457 0644 7215,"Adresse internationale, Chine",+216 20 734 674,2024-08-06,Actif,Chine,TN5977156606745706447215,premium star elec
+FRS-00125,Grand Sud Digital Store Pro,TN59 2579 1699 3287 5027 5431,"10 Rue Ibn Khaldoun, Gafsa",+216 24 764 518,2024-08-17,Actif,Tunisie,TN5925791699328750275431,grand sud digital store pro
+FRS-00126,Premium Horizon Tech,TN59 4130 4497 0426 2362 2328,"Adresse internationale, France",+216 27 218 199,2024-07-26,Actif,France,TN5941304497042623622328,premium horizon tech
+FRS-00127,National Horizon Tech,TN59 5965 2707 9882 9183 7529,"60 Rue Charles de Gaulle, Gabès",+216 28 529 701,2024-07-31,Actif,Tunisie,TN5959652707988291837529,national horizon tech
+FRS-00128,Nouvelle Vague Blue Wave Import,TN59 1826 1961 4649 9563 4045,"Adresse internationale, Italie",+216 21 953 601,2024-08-17,Actif,Italie,TN5918261961464995634045,nouvelle vague blue wave import
+FRS-00129,General Distrilec,TN59 7439 0352 9362 2196 9345,"6 Rue Charles de Gaulle, Sousse",+216 27 555 341,2024-07-24,Actif,Tunisie,TN5974390352936221969345,general distrilec
+FRS-00130,Techno Distrilec,TN59 1771 0054 9329 0824 0815,"Adresse internationale, Émirats Arabes Unis",+216 28 760 467,2024-07-30,Actif,Émirats Arabes Unis,TN5917710054932908240815,techno distrilec
+FRS-00131,Groupe Carthage Electronics,TN59 0805 9600 0378 3744 5636,"110 Rue Ibn Khaldoun, Ariana",+216 23 757 754,2024-07-14,Actif,Tunisie,TN5908059600037837445636,groupe carthage electronics
+FRS-00132,Espace Electro Plus,TN59 8215 9956 6208 1599 1191,"Adresse internationale, Allemagne",+216 22 905 678,2024-07-22,Actif,Allemagne,TN5982159956620815991191,espace electro plus
+FRS-00133,Cristal Cap Bon Electric,TN59 6743 9279 7280 6107 2724,"28 Rue du Lac Léman, Menzah",+216 23 436 892,2024-08-11,Actif,Tunisie,TN5967439279728061072724,cristal cap bon electric
+FRS-00134,Atelier Digital Store Pro,TN59 0935 9229 5139 7318 2986,"37 Avenue Mohamed V, Sfax",+216 28 356 917,2025-02-27,Actif,Tunisie,TN5909359229513973182986,atelier digital store pro
+FRS-00135,Cristal Blue Wave Import,TN59 8723 9834 7580 7278 8682,"18 Avenue Habib Bourguiba, Bizerte",+216 23 702 431,2024-07-08,Actif,Tunisie,TN5987239834758072788682,cristal blue wave import
+FRS-00136,Smart Home Silver Tech Distribution,TN59 0045 5551 8192 7805 1458,"96 Avenue Taïeb Mhiri, Manouba",+216 21 863 165,2024-07-15,Actif,Tunisie,TN5900455551819278051458,smart home silver tech distribution
+FRS-00137,Magenta Maghreb Electronics,TN59 6934 7360 8910 3829 5922,"77 Rue de Marseille, Ben Arous",+216 28 326 729,2024-08-08,Actif,Tunisie,TN5969347360891038295922,magenta maghreb electronics
+FRS-00138,Méditerranée Confort Electromenager,TN59 4884 6277 7346 5513 7808,"86 Avenue de Carthage, Nabeul",+216 27 758 131,2024-08-31,Actif,Tunisie,TN5948846277734655137808,méditerranée confort electromenager
+FRS-00139,Techno Zenith Distribution,TN59 1723 9137 1382 6490 5748,"56 Rue de Marseille, Ben Arous",+216 27 175 182,2024-08-01,Actif,Tunisie,TN5917239137138264905748,techno zenith distribution
+FRS-00140,Africa Medina Tech,TN59 5288 4461 8423 6502 3896,"Adresse internationale, Chine",+216 29 748 699,2024-07-24,Actif,Chine,TN5952884461842365023896,africa medina tech
+FRS-00141,Oasis Distrilec,TN59 6217 1709 7919 6489 8487,"69 Avenue de la Liberté, Ben Arous",+216 28 719 540,2024-08-14,Actif,Tunisie,TN5962171709791964898487,oasis distrilec
+FRS-00142,Atelier Modern Home Tech,TN59 6332 7710 8914 5663 4728,"85 Avenue de Carthage, Gafsa",+216 23 540 562,2024-08-30,Actif,Tunisie,TN5963327710891456634728,atelier modern home tech
+FRS-00143,Grand Sud Golden Electro,TN59 3565 3239 0284 0784 1661,"60 Avenue Taïeb Mhiri, Monastir",+216 21 420 537,2024-08-28,Actif,Tunisie,TN5935653239028407841661,grand sud golden electro
+FRS-00144,Beta Modern Home Tech,TN59 8777 2820 0705 2356 1997,"89 Rue Ibn Khaldoun, Ariana",+216 21 951 187,2024-07-16,Actif,Tunisie,TN5987772820070523561997,beta modern home tech
+FRS-00145,Grand Sud Delta Import,TN59 3949 5254 2808 0495 9372,"Adresse internationale, Émirats Arabes Unis",+216 22 669 161,2025-06-06,Actif,Émirats Arabes Unis,TN5939495254280804959372,grand sud delta import
+FRS-00146,Société Modern Home Tech,TN59 7715 6606 7457 0644 7215,"87 Rue de Marseille, Monastir",+216 25 994 781,2024-07-28,Inactif,Tunisie,TN5977156606745706447215,société modern home tech
+FRS-00147,Fast Track Digital Store Pro,TN59 2748 5089 8007 6439 0112,"94 Avenue Habib Bourguiba, Nabeul",+216 29 419 460,2024-09-03,Actif,Tunisie,TN5927485089800764390112,fast track digital store pro
+FRS-00148,Espace Confort Electromenager,TN59 7582 6882 4785 8235 0007,"86 Rue Ibn Khaldoun, Sousse",+216 21 458 965,2024-07-16,Actif,Tunisie,TN5975826882478582350007,espace confort electromenager
+FRS-00149,Groupe Universal Composants,TN59 9355 7547 0122 9697 4052,"Adresse internationale, Allemagne",+216 23 926 539,2024-08-12,Actif,Allemagne,TN5993557547012296974052,groupe universal composants
+FRS-00150,Panorama Blue Wave Import,TN59 2681 3030 0778 4308 4757,"81 Avenue de Carthage, Tunis",+216 29 773 949,2024-08-28,Actif,Tunisie,TN5926813030077843084757,panorama blue wave import
