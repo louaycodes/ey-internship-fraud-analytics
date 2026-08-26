@@ -40,7 +40,7 @@ class Tee:
         for s in self.streams:
             s.flush()
 
-rapport_file = open("rapport_diagnostic.txt", "w", encoding="utf-8")
+rapport_file = open("../../reports/rapport_diagnostic.txt", "w", encoding="utf-8")
 sys.stdout = Tee(sys.__stdout__, rapport_file)
 
 def titre(txt):
@@ -57,10 +57,10 @@ def sous_titre(txt):
 titre("1. CHARGEMENT DES FICHIERS")
 
 fichiers = {
-    "transactions": "output_tunidistrib/transactions.csv",
-    "fournisseurs": "output_tunidistrib/fournisseurs.csv",
-    "employes": "output_tunidistrib/employes.csv",
-    "fraude_log": "output_tunidistrib/journal_fraudes_injectees.csv",
+    "transactions": "../../data/raw/transactions.csv",
+    "fournisseurs": "../../data/raw/fournisseurs.csv",
+    "employes": "../../data/raw/employes.csv",
+    "fraude_log": "../../data/raw/journal_fraudes_injectees.csv",
 }
 
 dfs = {}
@@ -273,7 +273,7 @@ else:
     print("\n=> Corriger ces points avant de construire les règles de détection,")
     print("   sinon les règles seront testées sur des données non fiables.")
 
-print(f"\nRapport complet sauvegardé dans : rapport_diagnostic.txt")
+print(f"\nRapport complet sauvegardé dans : ../../reports/rapport_diagnostic.txt")
 
 sys.stdout = sys.__stdout__
 rapport_file.close()

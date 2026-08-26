@@ -43,7 +43,7 @@ TRANSACTIONS_PAR_MOIS_ECART = 300      # variation aléatoire autour de la moyen
 # 1 048 576 lignes par feuille, mais devient très lent à ouvrir au-delà
 # de quelques centaines de milliers de lignes formatées)
 OUTPUT_FORMAT = "csv"           # "csv" ou "xlsx"
-OUTPUT_DIR = "./output_tunidistrib"
+OUTPUT_DIR = "../../data/raw"
 
 random.seed(SEED)
 np.random.seed(SEED)

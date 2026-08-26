@@ -26,7 +26,7 @@ from itertools import combinations
 
 # ── Chemins ──────────────────────────────────────────────────────────
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-INPUT_DIR = os.path.join(BASE_DIR, "output_clean")
+INPUT_DIR = os.path.join(BASE_DIR, "../../data/clean")
 OUTPUT_DIR = INPUT_DIR  # exports dans le même dossier
 
 # =====================================================================

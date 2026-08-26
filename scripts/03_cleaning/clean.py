@@ -33,8 +33,8 @@ import re
 import pandas as pd
 from difflib import SequenceMatcher
 
-INPUT_DIR = "../output_tunidistrib"          # dossier contenant les CSV bruts
-OUTPUT_DIR = "./output_clean"
+INPUT_DIR = "../../data/raw"          # dossier contenant les CSV bruts
+OUTPUT_DIR = "../../data/clean"
 SEUIL_SIMILARITE_NOMS = 0.85   # 0 à 1 ; au-dessus = considéré comme doublon potentiel
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)

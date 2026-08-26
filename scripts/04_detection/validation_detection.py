@@ -8,8 +8,8 @@ import os
 import pandas as pd
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-INPUT_DIR = os.path.join(BASE_DIR, "output_clean")
-JOURNAL_PATH = os.path.join(BASE_DIR, "..", "output_tunidistrib", "journal_fraudes_injectees.csv")
+INPUT_DIR = os.path.join(BASE_DIR, "../../data/clean")
+JOURNAL_PATH = os.path.join(BASE_DIR, "../../data/raw", "journal_fraudes_injectees.csv")
 
 # ── Chargement ──────────────────────────────────────────────────────
 scorees = pd.read_csv(

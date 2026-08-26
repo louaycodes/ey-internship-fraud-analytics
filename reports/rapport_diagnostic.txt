@@ -2,10 +2,10 @@
 ==============================================================================
 1. CHARGEMENT DES FICHIERS
 ==============================================================================
-[OK] output_tunidistrib/transactions.csv           ->   77,699 lignes, 11 colonnes
-[OK] output_tunidistrib/fournisseurs.csv           ->      150 lignes,  8 colonnes
-[OK] output_tunidistrib/employes.csv               ->       25 lignes,  6 colonnes
-[OK] output_tunidistrib/journal_fraudes_injectees.csv ->       81 lignes,  2 colonnes
+[OK] ../../data/raw/transactions.csv               ->   77,819 lignes, 11 colonnes
+[OK] ../../data/raw/fournisseurs.csv               ->      150 lignes,  8 colonnes
+[OK] ../../data/raw/employes.csv                   ->       25 lignes,  6 colonnes
+[OK] ../../data/raw/journal_fraudes_injectees.csv  ->      116 lignes,  2 colonnes
 
 ==============================================================================
 2. STRUCTURE ET COMPLÉTUDE
@@ -57,8 +57,8 @@ id_employe en double dans la table Employés : 0
 --- Montants ---
 Min     : 50.000
 Max     : 44,311.184
-Moyenne : 2,544.254
-Médiane : 1,198.152
+Moyenne : 2,555.827
+Médiane : 1,198.605
 Montants négatifs : 0
 Montants à zéro   : 0
 
@@ -75,7 +75,7 @@ Transactions datées AVANT la création officielle du fournisseur : 0
 ==============================================================================
 5. VÉRIFICATION DES CAS DE FRAUDE INJECTÉS (JOURNAL)
 ==============================================================================
-Nombre de cas listés dans le journal : 81
+Nombre de cas listés dans le journal : 116
                               type_fraude           reference
                               RIB partagé FRS-00120/FRS-00065
                           Montant anormal          TX-0062283
@@ -158,6 +158,41 @@ Création fournisseur juste avant paiement           FRS-00134
                               RIB partagé FRS-00001/FRS-00081
                           Montant anormal          TX-0038251
                        Doublon de facture          TX-0035390
+       Multi-signaux - Dérive progressive           FRS-00072
+       Multi-signaux - Dérive progressive           FRS-00026
+       Multi-signaux - Dérive progressive           FRS-00023
+       Multi-signaux - Dérive progressive           FRS-00102
+       Multi-signaux - Dérive progressive           FRS-00039
+       Multi-signaux - Dérive progressive           FRS-00019
+       Multi-signaux - Dérive progressive           FRS-00048
+       Multi-signaux - Dérive progressive           FRS-00085
+    Multi-signaux - Concentration employé           FRS-00005
+    Multi-signaux - Concentration employé           FRS-00089
+    Multi-signaux - Concentration employé           FRS-00113
+    Multi-signaux - Concentration employé           FRS-00056
+    Multi-signaux - Concentration employé           FRS-00049
+    Multi-signaux - Concentration employé           FRS-00079
+    Multi-signaux - Concentration employé           FRS-00061
+    Multi-signaux - Concentration employé           FRS-00028
+    Multi-signaux - Concentration employé           FRS-00116
+    Multi-signaux - Concentration employé           FRS-00016
+  Multi-signaux - Fréquence post-création           FRS-00138
+  Multi-signaux - Fréquence post-création           FRS-00118
+  Multi-signaux - Fréquence post-création           FRS-00078
+  Multi-signaux - Fréquence post-création           FRS-00091
+  Multi-signaux - Fréquence post-création           FRS-00147
+  Multi-signaux - Fréquence post-création           FRS-00046
+  Multi-signaux - Fréquence post-création           FRS-00126
+  Multi-signaux - Fréquence post-création           FRS-00082
+           Multi-signaux - Montant+timing           FRS-00144
+           Multi-signaux - Montant+timing           FRS-00010
+           Multi-signaux - Montant+timing           FRS-00125
+           Multi-signaux - Montant+timing           FRS-00095
+           Multi-signaux - Montant+timing           FRS-00008
+           Multi-signaux - Montant+timing           FRS-00106
+           Multi-signaux - Montant+timing           FRS-00136
+           Multi-signaux - Montant+timing           FRS-00033
+           Multi-signaux - Montant+timing           FRS-00063
 
 --- Test 1 — RIB partagés entre plusieurs fournisseurs ---
 RIB utilisés par plusieurs fournisseurs différents : 17
@@ -180,36 +215,36 @@ RIB utilisés par plusieurs fournisseurs différents : 17
   - RIB partagé par 2 fournisseurs : ['FRS-00124', 'FRS-00146']
 
 --- Test 2 — Montants extrêmes (outliers statistiques) ---
-Seuil (moyenne + 3 écarts-types) : 11,485.56
-Transactions au-delà de ce seuil : 1095
+Seuil (moyenne + 3 écarts-types) : 11,522.07
+Transactions au-delà de ce seuil : 1066
 id_transaction id_fournisseur   montant date_transaction
     TX-0001899      FRS-00005 13997.861       2024-09-07
     TX-0001315      FRS-00098 12961.554       2024-09-08
+    TX-0077792      FRS-00126 11570.046       2024-09-09
+    TX-0077791      FRS-00126 12134.073       2024-09-09
     TX-0000216      FRS-00143 12095.415       2024-09-10
     TX-0003016      FRS-00034 11693.839       2024-09-11
     TX-0002859      FRS-00005 11957.652       2024-09-12
-    TX-0001554      FRS-00079 12735.404       2024-09-13
     TX-0000069      FRS-00041 13716.660       2024-09-13
+    TX-0001554      FRS-00079 12735.404       2024-09-13
     TX-0001580      FRS-00126 11546.385       2024-09-14
-    TX-0001305      FRS-00056 12028.175       2024-09-15
-    TX-0000420      FRS-00100 11800.770       2024-09-17
 
 --- Test 3 — Doublons de facturation (montants quasi identiques, même fournisseur, dates proches) ---
-Paires de transactions suspectes (écart <= 3 DT, <= 7 jours, même fournisseur) : 729
+Paires de transactions suspectes (écart <= 3 DT, <= 7 jours, même fournisseur) : 736
 
 --- Test 4 — Fournisseurs payés très peu de temps après création ---
-Transactions survenues <= 2 jours après création du fournisseur : 69
+Transactions survenues <= 2 jours après création du fournisseur : 66
 id_transaction id_fournisseur date_transaction  delai_creation_paiement
-    TX-0002122      FRS-00147       2024-09-05                        2
     TX-0001565      FRS-00100       2024-09-05                        1
-    TX-0000209      FRS-00147       2024-09-05                        2
-    TX-0001293      FRS-00147       2024-09-05                        2
-    TX-0010105      FRS-00035       2024-11-09                        1
     TX-0008051      FRS-00035       2024-11-09                        1
+    TX-0010105      FRS-00035       2024-11-09                        1
     TX-0010070      FRS-00035       2024-11-10                        2
     TX-0007841      FRS-00035       2024-11-10                        2
     TX-0007039      FRS-00070       2024-11-28                        0
     TX-0008285      FRS-00070       2024-11-29                        1
+    TX-0011811      FRS-00081       2024-12-16                        0
+    TX-0010895      FRS-00081       2024-12-17                        1
+    TX-0011636      FRS-00081       2024-12-17                        1
 
 ==============================================================================
 6. RÉSUMÉ ET VERDICT
@@ -220,4 +255,4 @@ id_transaction id_fournisseur date_transaction  delai_creation_paiement
 
 => On peut avancer vers l'étape de nettoyage/normalisation, puis les règles de détection.
 
-Rapport complet sauvegardé dans : rapport_diagnostic.txt
+Rapport complet sauvegardé dans : ../../reports/rapport_diagnostic.txt
