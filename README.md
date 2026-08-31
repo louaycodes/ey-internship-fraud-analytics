@@ -1,5 +1,6 @@
-# EY Internship — Fraud Analytics
+> ⚠️ **Nouveaux contributeurs et agents IA : lisez impérativement [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md) avant toute action.**
 
+# EY Internship — Fraud Analytics
 Projet réalisé dans le cadre d'un stage au département AI & Data d'EY, sous forme de mission de conseil simulée : le stagiaire joue à la fois le rôle du client (TuniDistrib SA, entreprise fictive de distribution) et du consultant EY chargé de résoudre sa problématique.
 
 **Problématique client :** détection de transactions frauduleuses auprès des fournisseurs (RIB partagés, fournisseurs fictifs, doublons de facturation, anomalies statistiques).
