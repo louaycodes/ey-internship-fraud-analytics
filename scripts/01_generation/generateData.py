@@ -528,10 +528,210 @@ df_transactions = df_transactions.sort_values("date_transaction").reset_index(dr
 print(f"  → {len(multi_signaux_log)} cas multi-signaux injectés")
 
 # =========================================================================
+# INJECTION DE CAS DE FRAUDE RÉSEAU (COLLUSION)
+# =========================================================================
+print("Injection des fraudes de collusion (réseau)...")
+rng_col = random.Random(SEED + 200)
+
+collusion_log = []
+coincidence_log = []
+lignes_transactions_collusion = []
+nouveaux_fournisseurs = []
+nouveaux_employes = []
+
+# ID de base pour les nouvelles entités
+base_tx_id = total_transactions + n_cas_fraude * 2 + 500
+base_emp_id = N_EMPLOYES + 1
+base_frs_id = N_FOURNISSEURS + 1
+
+# ── 1. Coïncidences non frauduleuses (Bruit de fond) ──
+print("  → Génération de bruit de fond (coïncidences)...")
+# On ajoute 4 employés qui partagent la même adresse (colocataires/famille)
+adresse_coloc = adresse_aleatoire()
+for i in range(4):
+    sexe = rng_col.choice(["H", "F"])
+    prenom = rng_col.choice(PRENOMS_H) if sexe == "H" else rng_col.choice(PRENOMS_F)
+    nom = rng_col.choice(NOMS_FAMILLE)
+    nouveaux_employes.append({
+        "id_employe": f"EMP-{base_emp_id:03d}",
+        "nom_employe": f"{prenom} {nom}",
+        "poste": rng_col.choice(POSTES),
+        "adresse_personnelle": adresse_coloc, # ADRESSE PARTAGÉE
+        "telephone": telephone_aleatoire(),
+        "date_embauche": (datetime(2018, 1, 1) + timedelta(days=rng_col.randint(0, 2500))).strftime("%Y-%m-%d")
+    })
+    coincidence_log.append({
+        "type": "Coïncidence non frauduleuse - Employés même adresse",
+        "reference": f"EMP-{base_emp_id:03d}"
+    })
+    base_emp_id += 1
+
+# ── 2. Collusion Directe (5 à 8 clusters) ──
+nb_clusters = rng_col.randint(5, 8)
+print(f"  → Génération de {nb_clusters} clusters de collusion directe...")
+employes_collusion_directe = []
+
+for _ in range(nb_clusters):
+    # Création de l'employé complice
+    sexe = rng_col.choice(["H", "F"])
+    prenom = rng_col.choice(PRENOMS_H) if sexe == "H" else rng_col.choice(PRENOMS_F)
+    nom = rng_col.choice(NOMS_FAMILLE)
+    adresse_partagee = adresse_aleatoire()
+    tel_partage = telephone_aleatoire()
+    
+    emp_id = f"EMP-{base_emp_id:03d}"
+    nouveaux_employes.append({
+        "id_employe": emp_id,
+        "nom_employe": f"{prenom} {nom}",
+        "poste": "Comptable Fournisseurs", # Poste validateur
+        "adresse_personnelle": adresse_partagee,
+        "telephone": tel_partage,
+        "date_embauche": (datetime(2018, 1, 1) + timedelta(days=rng_col.randint(0, 2500))).strftime("%Y-%m-%d")
+    })
+    base_emp_id += 1
+    
+    # Création du fournisseur complice
+    frs_id = f"FRS-{base_frs_id:05d}"
+    partage_adresse = rng_col.choice([True, False]) # Soit adresse, soit tel
+    nouveaux_fournisseurs.append({
+        "id_fournisseur": frs_id,
+        "nom_fournisseur": f"Fournisseur Collusion {base_frs_id}",
+        "rib_iban": rib_tn(2000 + base_frs_id), # RIB unique
+        "adresse": adresse_partagee if partage_adresse else adresse_aleatoire(),
+        "telephone": tel_partage if not partage_adresse else telephone_aleatoire(),
+        "date_creation_fournisseur": (date_debut_historique + timedelta(days=rng_col.randint(0, 40))).strftime("%Y-%m-%d"), # Ancien
+        "statut_fournisseur": "Actif",
+        "pays": "Tunisie",
+    })
+    base_frs_id += 1
+    
+    collusion_log.append({"type_fraude": "Collusion - directe", "reference": f"{emp_id}/{frs_id}"})
+    
+    # Transactions (15 à 25)
+    nb_tx = rng_col.randint(15, 25)
+    mu = 500 + rng_col.random() * 2000
+    for j in range(nb_tx):
+        # Répartition sur l'historique
+        offset = rng_col.randint(100, N_MOIS * 30)
+        date_tx = (date_debut_historique + timedelta(days=offset)).strftime("%Y-%m-%d")
+        lignes_transactions_collusion.append({
+            "id_transaction": f"TX-{base_tx_id:07d}",
+            "date_transaction": date_tx,
+            "id_fournisseur": frs_id,
+            "montant": round(max(50, rng_col.gauss(mu, mu * 0.1)), 3),
+            "devise": "TND",
+            "type_depense": rng_col.choice(TYPES_DEPENSE),
+            "mode_paiement": rng_col.choice(MODES_PAIEMENT),
+            "id_employe_initiateur": rng_col.choice(employes_initiateurs), # Autre initiateur
+            "id_employe_validateur": emp_id, # Validateur = complice
+            "statut_validation": "Validé",
+            "numero_facture": f"FAC-{rng_col.randint(10000,99999)}"
+        })
+        base_tx_id += 1
+
+# ── 3. Collusion Indirecte (3 à 5 cas) ──
+nb_cas_indirects = rng_col.randint(3, 5)
+print(f"  → Génération de {nb_cas_indirects} cas de collusion indirecte...")
+
+for _ in range(nb_cas_indirects):
+    # A et B partagent la même adresse. 
+    # Employé valide B, et partage téléphone avec C.
+    adresse_A_B = adresse_aleatoire()
+    tel_Emp_C = telephone_aleatoire()
+    
+    frs_A = f"FRS-{base_frs_id:05d}"
+    frs_B = f"FRS-{base_frs_id+1:05d}"
+    frs_C = f"FRS-{base_frs_id+2:05d}"
+    base_frs_id += 3
+    
+    nouveaux_fournisseurs.extend([
+        {
+            "id_fournisseur": frs_A, "nom_fournisseur": f"Fournisseur Collusion {base_frs_id-3}",
+            "rib_iban": rib_tn(2000 + base_frs_id - 3), "adresse": adresse_A_B, "telephone": telephone_aleatoire(),
+            "date_creation_fournisseur": (date_debut_historique + timedelta(days=10)).strftime("%Y-%m-%d"),
+            "statut_fournisseur": "Actif", "pays": "Tunisie"
+        },
+        {
+            "id_fournisseur": frs_B, "nom_fournisseur": f"Fournisseur Collusion {base_frs_id-2}",
+            "rib_iban": rib_tn(2000 + base_frs_id - 2), "adresse": adresse_A_B, "telephone": telephone_aleatoire(),
+            "date_creation_fournisseur": (date_debut_historique + timedelta(days=10)).strftime("%Y-%m-%d"),
+            "statut_fournisseur": "Actif", "pays": "Tunisie"
+        },
+        {
+            "id_fournisseur": frs_C, "nom_fournisseur": f"Fournisseur Collusion {base_frs_id-1}",
+            "rib_iban": rib_tn(2000 + base_frs_id - 1), "adresse": adresse_aleatoire(), "telephone": tel_Emp_C,
+            "date_creation_fournisseur": (date_debut_historique + timedelta(days=10)).strftime("%Y-%m-%d"),
+            "statut_fournisseur": "Actif", "pays": "Tunisie"
+        }
+    ])
+    
+    emp_id = f"EMP-{base_emp_id:03d}"
+    sexe = rng_col.choice(["H", "F"])
+    prenom = rng_col.choice(PRENOMS_H) if sexe == "H" else rng_col.choice(PRENOMS_F)
+    nom = rng_col.choice(NOMS_FAMILLE)
+    nouveaux_employes.append({
+        "id_employe": emp_id,
+        "nom_employe": f"{prenom} {nom}",
+        "poste": "Comptable Fournisseurs",
+        "adresse_personnelle": adresse_aleatoire(),
+        "telephone": tel_Emp_C,
+        "date_embauche": "2020-01-01"
+    })
+    base_emp_id += 1
+    
+    collusion_log.append({"type_fraude": "Collusion - indirecte", "reference": f"{frs_A}/{frs_B}/{emp_id}/{frs_C}"})
+    
+    # 10 à 15 transactions par entité de la chaîne
+    for frs in [frs_A, frs_B, frs_C]:
+        nb_tx = rng_col.randint(10, 15)
+        mu = 500 + rng_col.random() * 2000
+        for j in range(nb_tx):
+            offset = rng_col.randint(100, N_MOIS * 30)
+            date_tx = (date_debut_historique + timedelta(days=offset)).strftime("%Y-%m-%d")
+            lignes_transactions_collusion.append({
+                "id_transaction": f"TX-{base_tx_id:07d}",
+                "date_transaction": date_tx,
+                "id_fournisseur": frs,
+                "montant": round(max(50, rng_col.gauss(mu, mu * 0.1)), 3),
+                "devise": "TND",
+                "type_depense": rng_col.choice(TYPES_DEPENSE),
+                "mode_paiement": rng_col.choice(MODES_PAIEMENT),
+                "id_employe_initiateur": rng_col.choice(employes_initiateurs), 
+                "id_employe_validateur": emp_id if frs == frs_B else rng_col.choice(employes_validateurs),
+                "statut_validation": "Validé",
+                "numero_facture": f"FAC-{rng_col.randint(10000,99999)}"
+            })
+            base_tx_id += 1
+
+# Ajout des données aux DataFrames
+if nouveaux_employes:
+    df_new_emp = pd.DataFrame(nouveaux_employes)
+    df_employes = pd.concat([df_employes, df_new_emp], ignore_index=True)
+
+if nouveaux_fournisseurs:
+    df_new_frs = pd.DataFrame(nouveaux_fournisseurs)
+    df_fournisseurs = pd.concat([df_fournisseurs, df_new_frs], ignore_index=True)
+
+if lignes_transactions_collusion:
+    df_new_tx = pd.DataFrame(lignes_transactions_collusion)
+    df_transactions = pd.concat([df_transactions, df_new_tx], ignore_index=True)
+
+if collusion_log:
+    df_collusion_log = pd.DataFrame(collusion_log)
+    df_fraude_log = pd.concat([df_fraude_log, df_collusion_log], ignore_index=True)
+
+print(f"  → Total lignes transactions ajoutées : {len(lignes_transactions_collusion)}")
+print(f"  → Total nouveaux employés ajoutés    : {len(nouveaux_employes)}")
+print(f"  → Total nouveaux fournisseurs ajoutés: {len(nouveaux_fournisseurs)}")
+
+# =========================================================================
 # EXPORT
 # =========================================================================
 import os
 os.makedirs(OUTPUT_DIR, exist_ok=True)
+
+if coincidence_log:
+    pd.DataFrame(coincidence_log).to_csv(f"{OUTPUT_DIR}/coincidences_log.csv", index=False, encoding="utf-8-sig")
 
 if OUTPUT_FORMAT == "csv":
     df_transactions.to_csv(f"{OUTPUT_DIR}/transactions.csv", index=False, encoding="utf-8-sig")

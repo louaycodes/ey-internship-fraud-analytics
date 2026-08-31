@@ -1,10 +1,101 @@
 id_fournisseur_1,nom_1,id_fournisseur_2,nom_2,score_similarite
+FRS-00153,Fournisseur Collusion 153,FRS-00154,Fournisseur Collusion 154,0.96
+FRS-00153,Fournisseur Collusion 153,FRS-00157,Fournisseur Collusion 157,0.96
+FRS-00154,Fournisseur Collusion 154,FRS-00164,Fournisseur Collusion 164,0.96
+FRS-00154,Fournisseur Collusion 154,FRS-00159,Fournisseur Collusion 159,0.96
+FRS-00154,Fournisseur Collusion 154,FRS-00158,Fournisseur Collusion 158,0.96
+FRS-00154,Fournisseur Collusion 154,FRS-00157,Fournisseur Collusion 157,0.96
+FRS-00154,Fournisseur Collusion 154,FRS-00156,Fournisseur Collusion 156,0.96
+FRS-00154,Fournisseur Collusion 154,FRS-00155,Fournisseur Collusion 155,0.96
+FRS-00153,Fournisseur Collusion 153,FRS-00163,Fournisseur Collusion 163,0.96
+FRS-00153,Fournisseur Collusion 153,FRS-00159,Fournisseur Collusion 159,0.96
+FRS-00153,Fournisseur Collusion 153,FRS-00158,Fournisseur Collusion 158,0.96
+FRS-00153,Fournisseur Collusion 153,FRS-00156,Fournisseur Collusion 156,0.96
+FRS-00155,Fournisseur Collusion 155,FRS-00157,Fournisseur Collusion 157,0.96
+FRS-00153,Fournisseur Collusion 153,FRS-00155,Fournisseur Collusion 155,0.96
+FRS-00152,Fournisseur Collusion 152,FRS-00162,Fournisseur Collusion 162,0.96
+FRS-00152,Fournisseur Collusion 152,FRS-00159,Fournisseur Collusion 159,0.96
+FRS-00152,Fournisseur Collusion 152,FRS-00158,Fournisseur Collusion 158,0.96
+FRS-00152,Fournisseur Collusion 152,FRS-00157,Fournisseur Collusion 157,0.96
+FRS-00152,Fournisseur Collusion 152,FRS-00156,Fournisseur Collusion 156,0.96
+FRS-00152,Fournisseur Collusion 152,FRS-00155,Fournisseur Collusion 155,0.96
+FRS-00152,Fournisseur Collusion 152,FRS-00154,Fournisseur Collusion 154,0.96
+FRS-00152,Fournisseur Collusion 152,FRS-00153,Fournisseur Collusion 153,0.96
+FRS-00155,Fournisseur Collusion 155,FRS-00156,Fournisseur Collusion 156,0.96
+FRS-00155,Fournisseur Collusion 155,FRS-00158,Fournisseur Collusion 158,0.96
+FRS-00151,Fournisseur Collusion 151,FRS-00159,Fournisseur Collusion 159,0.96
+FRS-00158,Fournisseur Collusion 158,FRS-00159,Fournisseur Collusion 159,0.96
+FRS-00162,Fournisseur Collusion 162,FRS-00164,Fournisseur Collusion 164,0.96
+FRS-00162,Fournisseur Collusion 162,FRS-00163,Fournisseur Collusion 163,0.96
+FRS-00161,Fournisseur Collusion 161,FRS-00164,Fournisseur Collusion 164,0.96
+FRS-00161,Fournisseur Collusion 161,FRS-00163,Fournisseur Collusion 163,0.96
+FRS-00161,Fournisseur Collusion 161,FRS-00162,Fournisseur Collusion 162,0.96
+FRS-00160,Fournisseur Collusion 160,FRS-00164,Fournisseur Collusion 164,0.96
+FRS-00160,Fournisseur Collusion 160,FRS-00163,Fournisseur Collusion 163,0.96
+FRS-00160,Fournisseur Collusion 160,FRS-00162,Fournisseur Collusion 162,0.96
+FRS-00160,Fournisseur Collusion 160,FRS-00161,Fournisseur Collusion 161,0.96
+FRS-00157,Fournisseur Collusion 157,FRS-00159,Fournisseur Collusion 159,0.96
+FRS-00155,Fournisseur Collusion 155,FRS-00159,Fournisseur Collusion 159,0.96
+FRS-00157,Fournisseur Collusion 157,FRS-00158,Fournisseur Collusion 158,0.96
+FRS-00156,Fournisseur Collusion 156,FRS-00164,Fournisseur Collusion 164,0.96
+FRS-00156,Fournisseur Collusion 156,FRS-00163,Fournisseur Collusion 163,0.96
+FRS-00156,Fournisseur Collusion 156,FRS-00162,Fournisseur Collusion 162,0.96
+FRS-00156,Fournisseur Collusion 156,FRS-00161,Fournisseur Collusion 161,0.96
+FRS-00156,Fournisseur Collusion 156,FRS-00160,Fournisseur Collusion 160,0.96
+FRS-00156,Fournisseur Collusion 156,FRS-00159,Fournisseur Collusion 159,0.96
+FRS-00156,Fournisseur Collusion 156,FRS-00158,Fournisseur Collusion 158,0.96
+FRS-00156,Fournisseur Collusion 156,FRS-00157,Fournisseur Collusion 157,0.96
+FRS-00151,Fournisseur Collusion 151,FRS-00161,Fournisseur Collusion 161,0.96
+FRS-00163,Fournisseur Collusion 163,FRS-00164,Fournisseur Collusion 164,0.96
+FRS-00151,Fournisseur Collusion 151,FRS-00153,Fournisseur Collusion 153,0.96
+FRS-00151,Fournisseur Collusion 151,FRS-00158,Fournisseur Collusion 158,0.96
+FRS-00151,Fournisseur Collusion 151,FRS-00157,Fournisseur Collusion 157,0.96
+FRS-00151,Fournisseur Collusion 151,FRS-00156,Fournisseur Collusion 156,0.96
+FRS-00151,Fournisseur Collusion 151,FRS-00155,Fournisseur Collusion 155,0.96
+FRS-00151,Fournisseur Collusion 151,FRS-00154,Fournisseur Collusion 154,0.96
+FRS-00151,Fournisseur Collusion 151,FRS-00152,Fournisseur Collusion 152,0.96
 FRS-00031,General Universal Composants,FRS-00089,Central Universal Composants,0.929
 FRS-00032,General Zenith Distribution,FRS-00120,Central Zenith Distribution,0.926
+FRS-00154,Fournisseur Collusion 154,FRS-00161,Fournisseur Collusion 161,0.92
+FRS-00154,Fournisseur Collusion 154,FRS-00163,Fournisseur Collusion 163,0.92
+FRS-00154,Fournisseur Collusion 154,FRS-00162,Fournisseur Collusion 162,0.92
+FRS-00151,Fournisseur Collusion 151,FRS-00160,Fournisseur Collusion 160,0.92
+FRS-00154,Fournisseur Collusion 154,FRS-00160,Fournisseur Collusion 160,0.92
+FRS-00158,Fournisseur Collusion 158,FRS-00161,Fournisseur Collusion 161,0.92
+FRS-00157,Fournisseur Collusion 157,FRS-00164,Fournisseur Collusion 164,0.92
+FRS-00158,Fournisseur Collusion 158,FRS-00162,Fournisseur Collusion 162,0.92
+FRS-00158,Fournisseur Collusion 158,FRS-00160,Fournisseur Collusion 160,0.92
+FRS-00155,Fournisseur Collusion 155,FRS-00161,Fournisseur Collusion 161,0.92
+FRS-00157,Fournisseur Collusion 157,FRS-00163,Fournisseur Collusion 163,0.92
+FRS-00155,Fournisseur Collusion 155,FRS-00160,Fournisseur Collusion 160,0.92
+FRS-00158,Fournisseur Collusion 158,FRS-00164,Fournisseur Collusion 164,0.92
+FRS-00155,Fournisseur Collusion 155,FRS-00162,Fournisseur Collusion 162,0.92
+FRS-00155,Fournisseur Collusion 155,FRS-00163,Fournisseur Collusion 163,0.92
+FRS-00155,Fournisseur Collusion 155,FRS-00164,Fournisseur Collusion 164,0.92
+FRS-00157,Fournisseur Collusion 157,FRS-00162,Fournisseur Collusion 162,0.92
+FRS-00157,Fournisseur Collusion 157,FRS-00161,Fournisseur Collusion 161,0.92
+FRS-00158,Fournisseur Collusion 158,FRS-00163,Fournisseur Collusion 163,0.92
+FRS-00153,Fournisseur Collusion 153,FRS-00162,Fournisseur Collusion 162,0.92
+FRS-00153,Fournisseur Collusion 153,FRS-00164,Fournisseur Collusion 164,0.92
+FRS-00159,Fournisseur Collusion 159,FRS-00160,Fournisseur Collusion 160,0.92
+FRS-00151,Fournisseur Collusion 151,FRS-00162,Fournisseur Collusion 162,0.92
+FRS-00151,Fournisseur Collusion 151,FRS-00163,Fournisseur Collusion 163,0.92
+FRS-00151,Fournisseur Collusion 151,FRS-00164,Fournisseur Collusion 164,0.92
+FRS-00152,Fournisseur Collusion 152,FRS-00160,Fournisseur Collusion 160,0.92
+FRS-00152,Fournisseur Collusion 152,FRS-00161,Fournisseur Collusion 161,0.92
+FRS-00152,Fournisseur Collusion 152,FRS-00163,Fournisseur Collusion 163,0.92
+FRS-00152,Fournisseur Collusion 152,FRS-00164,Fournisseur Collusion 164,0.92
+FRS-00157,Fournisseur Collusion 157,FRS-00160,Fournisseur Collusion 160,0.92
+FRS-00159,Fournisseur Collusion 159,FRS-00164,Fournisseur Collusion 164,0.92
+FRS-00159,Fournisseur Collusion 159,FRS-00163,Fournisseur Collusion 163,0.92
+FRS-00159,Fournisseur Collusion 159,FRS-00162,Fournisseur Collusion 162,0.92
+FRS-00159,Fournisseur Collusion 159,FRS-00161,Fournisseur Collusion 161,0.92
+FRS-00153,Fournisseur Collusion 153,FRS-00160,Fournisseur Collusion 160,0.92
+FRS-00153,Fournisseur Collusion 153,FRS-00161,Fournisseur Collusion 161,0.92
 FRS-00012,Sud Distribution Tech,FRS-00122,Beta Sud Distribution Tech,0.894
-FRS-00121,Central Maghreb Electronics,FRS-00137,Magenta Maghreb Electronics,0.889
-FRS-00110,Cristal Zenith Distribution,FRS-00120,Central Zenith Distribution,0.889
 FRS-00051,Espace Sud Distribution Tech,FRS-00122,Beta Sud Distribution Tech,0.889
+FRS-00110,Cristal Zenith Distribution,FRS-00120,Central Zenith Distribution,0.889
+FRS-00121,Central Maghreb Electronics,FRS-00137,Magenta Maghreb Electronics,0.889
 FRS-00093,Trans Modern Home Tech,FRS-00144,Beta Modern Home Tech,0.884
 FRS-00058,Central Star Elec,FRS-00088,General Star Elec,0.882
 FRS-00005,SOTEL Distribution,FRS-00079,Beta SOTEL Distribution,0.878
@@ -12,30 +103,30 @@ FRS-00030,Espace SOTEL Distribution,FRS-00079,Beta SOTEL Distribution,0.875
 FRS-00071,Central Cap Bon Electric,FRS-00133,Cristal Cap Bon Electric,0.875
 FRS-00050,Central Atlas Composants,FRS-00067,Cristal Atlas Composants,0.875
 FRS-00029,General Sud Distribution Tech,FRS-00122,Beta Sud Distribution Tech,0.873
-FRS-00014,Carthage Electronics,FRS-00090,Alpha Carthage Electronics,0.87
 FRS-00071,Central Cap Bon Electric,FRS-00075,Trans Cap Bon Electric,0.87
+FRS-00014,Carthage Electronics,FRS-00090,Alpha Carthage Electronics,0.87
 FRS-00053,Fast Track Tunisie Composants,FRS-00102,Fast Track Universal Composants,0.867
-FRS-00028,Modern Home Tech,FRS-00144,Beta Modern Home Tech,0.865
 FRS-00006,High Tech Import,FRS-00112,Beta High Tech Import,0.865
-FRS-00022,Zenith Distribution,FRS-00061,Alpha Zenith Distribution,0.864
+FRS-00028,Modern Home Tech,FRS-00144,Beta Modern Home Tech,0.865
 FRS-00052,Espace High Tech Import,FRS-00112,Beta High Tech Import,0.864
+FRS-00022,Zenith Distribution,FRS-00061,Alpha Zenith Distribution,0.864
 FRS-00009,Confort Electromenager,FRS-00148,Espace Confort Electromenager,0.863
-FRS-00018,Silver Tech Distribution,FRS-00100,Premium Silver Tech Distribution,0.857
-FRS-00012,Sud Distribution Tech,FRS-00051,Espace Sud Distribution Tech,0.857
-FRS-00012,Sud Distribution Tech,FRS-00068,Africa Sud Distribution Tech,0.857
-FRS-00051,Espace Sud Distribution Tech,FRS-00068,Africa Sud Distribution Tech,0.857
-FRS-00079,Beta SOTEL Distribution,FRS-00097,General SOTEL Distribution,0.857
 FRS-00018,Silver Tech Distribution,FRS-00108,Cristal Silver Tech Distribution,0.857
+FRS-00051,Espace Sud Distribution Tech,FRS-00068,Africa Sud Distribution Tech,0.857
 FRS-00062,Cristal Digital Store Pro,FRS-00087,Africa Digital Store Pro,0.857
-FRS-00068,Africa Sud Distribution Tech,FRS-00122,Beta Sud Distribution Tech,0.852
+FRS-00012,Sud Distribution Tech,FRS-00068,Africa Sud Distribution Tech,0.857
+FRS-00012,Sud Distribution Tech,FRS-00051,Espace Sud Distribution Tech,0.857
+FRS-00018,Silver Tech Distribution,FRS-00100,Premium Silver Tech Distribution,0.857
+FRS-00079,Beta SOTEL Distribution,FRS-00097,General SOTEL Distribution,0.857
 FRS-00104,Espace Carthage Electronics,FRS-00131,Groupe Carthage Electronics,0.852
-FRS-00033,Cristal Confort Electromenager,FRS-00116,National Confort Electromenager,0.852
+FRS-00068,Africa Sud Distribution Tech,FRS-00122,Beta Sud Distribution Tech,0.852
 FRS-00057,Atelier Carthage Electronics,FRS-00090,Alpha Carthage Electronics,0.852
+FRS-00033,Cristal Confort Electromenager,FRS-00116,National Confort Electromenager,0.852
 FRS-00032,General Zenith Distribution,FRS-00110,Cristal Zenith Distribution,0.852
-FRS-00067,Cristal Atlas Composants,FRS-00078,Africa Atlas Composants,0.851
 FRS-00072,Alpha Digital Store Pro,FRS-00087,Africa Digital Store Pro,0.851
-FRS-00014,Carthage Electronics,FRS-00104,Espace Carthage Electronics,0.851
-FRS-00026,Universal Composants,FRS-00149,Groupe Universal Composants,0.851
 FRS-00014,Carthage Electronics,FRS-00131,Groupe Carthage Electronics,0.851
+FRS-00014,Carthage Electronics,FRS-00104,Espace Carthage Electronics,0.851
+FRS-00067,Cristal Atlas Composants,FRS-00078,Africa Atlas Composants,0.851
+FRS-00026,Universal Composants,FRS-00149,Groupe Universal Composants,0.851
 FRS-00043,Fast Track Star Elec,FRS-00101,Fast Track Distrilec,0.85
 FRS-00008,Digital Store Pro,FRS-00072,Alpha Digital Store Pro,0.85

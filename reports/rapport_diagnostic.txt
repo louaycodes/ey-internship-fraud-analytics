@@ -2,10 +2,10 @@
 ==============================================================================
 1. CHARGEMENT DES FICHIERS
 ==============================================================================
-[OK] ../../data/raw/transactions.csv               ->   77,819 lignes, 11 colonnes
-[OK] ../../data/raw/fournisseurs.csv               ->      150 lignes,  8 colonnes
-[OK] ../../data/raw/employes.csv                   ->       25 lignes,  6 colonnes
-[OK] ../../data/raw/journal_fraudes_injectees.csv  ->      116 lignes,  2 colonnes
+[OK] ../../data/raw/transactions.csv               ->   78,020 lignes, 11 colonnes
+[OK] ../../data/raw/fournisseurs.csv               ->      164 lignes,  8 colonnes
+[OK] ../../data/raw/employes.csv                   ->       37 lignes,  6 colonnes
+[OK] ../../data/raw/journal_fraudes_injectees.csv  ->      124 lignes,  2 colonnes
 
 ==============================================================================
 2. STRUCTURE ET COMPLÉTUDE
@@ -57,14 +57,14 @@ id_employe en double dans la table Employés : 0
 --- Montants ---
 Min     : 50.000
 Max     : 44,311.184
-Moyenne : 2,555.827
-Médiane : 1,198.605
+Moyenne : 2,554.036
+Médiane : 1,202.916
 Montants négatifs : 0
 Montants à zéro   : 0
 
 --- Dates ---
-Date la plus ancienne : 2024-09-05 00:00:00
-Date la plus récente  : 2026-08-24 00:00:00
+Date la plus ancienne : 2024-09-06 00:00:00
+Date la plus récente  : 2026-08-25 00:00:00
 Transactions datées dans le futur : 0
 
 --- Cohérence dates de création fournisseur vs. dates de transaction ---
@@ -75,124 +75,132 @@ Transactions datées AVANT la création officielle du fournisseur : 0
 ==============================================================================
 5. VÉRIFICATION DES CAS DE FRAUDE INJECTÉS (JOURNAL)
 ==============================================================================
-Nombre de cas listés dans le journal : 116
-                              type_fraude           reference
-                              RIB partagé FRS-00120/FRS-00065
-                          Montant anormal          TX-0062283
-                       Doublon de facture          TX-0044113
-Création fournisseur juste avant paiement           FRS-00111
-                              RIB partagé FRS-00149/FRS-00123
-                          Montant anormal          TX-0025113
-                       Doublon de facture          TX-0017190
-Création fournisseur juste avant paiement           FRS-00145
-                              RIB partagé FRS-00142/FRS-00041
-                          Montant anormal          TX-0053260
-                       Doublon de facture          TX-0077598
-Création fournisseur juste avant paiement           FRS-00025
-                              RIB partagé FRS-00009/FRS-00119
-                          Montant anormal          TX-0079803
-                       Doublon de facture          TX-0014756
-Création fournisseur juste avant paiement           FRS-00070
-                              RIB partagé FRS-00128/FRS-00104
-                          Montant anormal          TX-0017462
-                       Doublon de facture          TX-0050317
-Création fournisseur juste avant paiement           FRS-00040
-                              RIB partagé FRS-00104/FRS-00011
-                          Montant anormal          TX-0028468
-                       Doublon de facture          TX-0074019
-Création fournisseur juste avant paiement           FRS-00054
-                              RIB partagé FRS-00004/FRS-00068
-                          Montant anormal          TX-0081828
-                       Doublon de facture          TX-0036179
-Création fournisseur juste avant paiement           FRS-00032
-                              RIB partagé FRS-00122/FRS-00018
-                          Montant anormal          TX-0023729
-                       Doublon de facture          TX-0001269
-Création fournisseur juste avant paiement           FRS-00081
-                              RIB partagé FRS-00055/FRS-00045
-                          Montant anormal          TX-0053671
-                       Doublon de facture          TX-0002902
-Création fournisseur juste avant paiement           FRS-00059
-                              RIB partagé FRS-00099/FRS-00142
-                          Montant anormal          TX-0012002
-                       Doublon de facture          TX-0047939
-Création fournisseur juste avant paiement           FRS-00066
-                          Montant anormal          TX-0031752
-                       Doublon de facture          TX-0018091
-Création fournisseur juste avant paiement           FRS-00035
-                              RIB partagé FRS-00131/FRS-00024
-                          Montant anormal          TX-0067052
-                       Doublon de facture          TX-0003232
-Création fournisseur juste avant paiement           FRS-00017
-                              RIB partagé FRS-00146/FRS-00124
-                          Montant anormal          TX-0042076
-                       Doublon de facture          TX-0040505
-Création fournisseur juste avant paiement           FRS-00090
-                              RIB partagé FRS-00037/FRS-00130
-                          Montant anormal          TX-0025162
-                       Doublon de facture          TX-0031221
-Création fournisseur juste avant paiement           FRS-00057
-                              RIB partagé FRS-00014/FRS-00030
-                          Montant anormal          TX-0048122
-                       Doublon de facture          TX-0073157
-Création fournisseur juste avant paiement           FRS-00121
-                              RIB partagé FRS-00093/FRS-00127
-                       Doublon de facture          TX-0048680
-Création fournisseur juste avant paiement           FRS-00062
-                              RIB partagé FRS-00024/FRS-00025
-                          Montant anormal          TX-0057407
-                       Doublon de facture          TX-0053754
-Création fournisseur juste avant paiement           FRS-00009
-                              RIB partagé FRS-00069/FRS-00101
-                          Montant anormal          TX-0032560
-                       Doublon de facture          TX-0002725
-Création fournisseur juste avant paiement           FRS-00021
-                              RIB partagé FRS-00110/FRS-00074
-                          Montant anormal          TX-0064625
-                       Doublon de facture          TX-0049958
-Création fournisseur juste avant paiement           FRS-00064
-                              RIB partagé FRS-00015/FRS-00071
-                          Montant anormal          TX-0026504
-                       Doublon de facture          TX-0078147
-Création fournisseur juste avant paiement           FRS-00134
-                              RIB partagé FRS-00001/FRS-00081
-                          Montant anormal          TX-0038251
-                       Doublon de facture          TX-0035390
-       Multi-signaux - Dérive progressive           FRS-00072
-       Multi-signaux - Dérive progressive           FRS-00026
-       Multi-signaux - Dérive progressive           FRS-00023
-       Multi-signaux - Dérive progressive           FRS-00102
-       Multi-signaux - Dérive progressive           FRS-00039
-       Multi-signaux - Dérive progressive           FRS-00019
-       Multi-signaux - Dérive progressive           FRS-00048
-       Multi-signaux - Dérive progressive           FRS-00085
-    Multi-signaux - Concentration employé           FRS-00005
-    Multi-signaux - Concentration employé           FRS-00089
-    Multi-signaux - Concentration employé           FRS-00113
-    Multi-signaux - Concentration employé           FRS-00056
-    Multi-signaux - Concentration employé           FRS-00049
-    Multi-signaux - Concentration employé           FRS-00079
-    Multi-signaux - Concentration employé           FRS-00061
-    Multi-signaux - Concentration employé           FRS-00028
-    Multi-signaux - Concentration employé           FRS-00116
-    Multi-signaux - Concentration employé           FRS-00016
-  Multi-signaux - Fréquence post-création           FRS-00138
-  Multi-signaux - Fréquence post-création           FRS-00118
-  Multi-signaux - Fréquence post-création           FRS-00078
-  Multi-signaux - Fréquence post-création           FRS-00091
-  Multi-signaux - Fréquence post-création           FRS-00147
-  Multi-signaux - Fréquence post-création           FRS-00046
-  Multi-signaux - Fréquence post-création           FRS-00126
-  Multi-signaux - Fréquence post-création           FRS-00082
-           Multi-signaux - Montant+timing           FRS-00144
-           Multi-signaux - Montant+timing           FRS-00010
-           Multi-signaux - Montant+timing           FRS-00125
-           Multi-signaux - Montant+timing           FRS-00095
-           Multi-signaux - Montant+timing           FRS-00008
-           Multi-signaux - Montant+timing           FRS-00106
-           Multi-signaux - Montant+timing           FRS-00136
-           Multi-signaux - Montant+timing           FRS-00033
-           Multi-signaux - Montant+timing           FRS-00063
+Nombre de cas listés dans le journal : 124
+                              type_fraude                             reference
+                              RIB partagé                   FRS-00120/FRS-00065
+                          Montant anormal                            TX-0062283
+                       Doublon de facture                            TX-0044113
+Création fournisseur juste avant paiement                             FRS-00111
+                              RIB partagé                   FRS-00149/FRS-00123
+                          Montant anormal                            TX-0025113
+                       Doublon de facture                            TX-0017190
+Création fournisseur juste avant paiement                             FRS-00145
+                              RIB partagé                   FRS-00142/FRS-00041
+                          Montant anormal                            TX-0053260
+                       Doublon de facture                            TX-0077598
+Création fournisseur juste avant paiement                             FRS-00025
+                              RIB partagé                   FRS-00009/FRS-00119
+                          Montant anormal                            TX-0079803
+                       Doublon de facture                            TX-0014756
+Création fournisseur juste avant paiement                             FRS-00070
+                              RIB partagé                   FRS-00128/FRS-00104
+                          Montant anormal                            TX-0017462
+                       Doublon de facture                            TX-0050317
+Création fournisseur juste avant paiement                             FRS-00040
+                              RIB partagé                   FRS-00104/FRS-00011
+                          Montant anormal                            TX-0028468
+                       Doublon de facture                            TX-0074019
+Création fournisseur juste avant paiement                             FRS-00054
+                              RIB partagé                   FRS-00004/FRS-00068
+                          Montant anormal                            TX-0081828
+                       Doublon de facture                            TX-0036179
+Création fournisseur juste avant paiement                             FRS-00032
+                              RIB partagé                   FRS-00122/FRS-00018
+                          Montant anormal                            TX-0023729
+                       Doublon de facture                            TX-0001269
+Création fournisseur juste avant paiement                             FRS-00081
+                              RIB partagé                   FRS-00055/FRS-00045
+                          Montant anormal                            TX-0053671
+                       Doublon de facture                            TX-0002902
+Création fournisseur juste avant paiement                             FRS-00059
+                              RIB partagé                   FRS-00099/FRS-00142
+                          Montant anormal                            TX-0012002
+                       Doublon de facture                            TX-0047939
+Création fournisseur juste avant paiement                             FRS-00066
+                          Montant anormal                            TX-0031752
+                       Doublon de facture                            TX-0018091
+Création fournisseur juste avant paiement                             FRS-00035
+                              RIB partagé                   FRS-00131/FRS-00024
+                          Montant anormal                            TX-0067052
+                       Doublon de facture                            TX-0003232
+Création fournisseur juste avant paiement                             FRS-00017
+                              RIB partagé                   FRS-00146/FRS-00124
+                          Montant anormal                            TX-0042076
+                       Doublon de facture                            TX-0040505
+Création fournisseur juste avant paiement                             FRS-00090
+                              RIB partagé                   FRS-00037/FRS-00130
+                          Montant anormal                            TX-0025162
+                       Doublon de facture                            TX-0031221
+Création fournisseur juste avant paiement                             FRS-00057
+                              RIB partagé                   FRS-00014/FRS-00030
+                          Montant anormal                            TX-0048122
+                       Doublon de facture                            TX-0073157
+Création fournisseur juste avant paiement                             FRS-00121
+                              RIB partagé                   FRS-00093/FRS-00127
+                       Doublon de facture                            TX-0048680
+Création fournisseur juste avant paiement                             FRS-00062
+                              RIB partagé                   FRS-00024/FRS-00025
+                          Montant anormal                            TX-0057407
+                       Doublon de facture                            TX-0053754
+Création fournisseur juste avant paiement                             FRS-00009
+                              RIB partagé                   FRS-00069/FRS-00101
+                          Montant anormal                            TX-0032560
+                       Doublon de facture                            TX-0002725
+Création fournisseur juste avant paiement                             FRS-00021
+                              RIB partagé                   FRS-00110/FRS-00074
+                          Montant anormal                            TX-0064625
+                       Doublon de facture                            TX-0049958
+Création fournisseur juste avant paiement                             FRS-00064
+                              RIB partagé                   FRS-00015/FRS-00071
+                          Montant anormal                            TX-0026504
+                       Doublon de facture                            TX-0078147
+Création fournisseur juste avant paiement                             FRS-00134
+                              RIB partagé                   FRS-00001/FRS-00081
+                          Montant anormal                            TX-0038251
+                       Doublon de facture                            TX-0035390
+       Multi-signaux - Dérive progressive                             FRS-00072
+       Multi-signaux - Dérive progressive                             FRS-00026
+       Multi-signaux - Dérive progressive                             FRS-00023
+       Multi-signaux - Dérive progressive                             FRS-00102
+       Multi-signaux - Dérive progressive                             FRS-00039
+       Multi-signaux - Dérive progressive                             FRS-00019
+       Multi-signaux - Dérive progressive                             FRS-00048
+       Multi-signaux - Dérive progressive                             FRS-00085
+    Multi-signaux - Concentration employé                             FRS-00005
+    Multi-signaux - Concentration employé                             FRS-00089
+    Multi-signaux - Concentration employé                             FRS-00113
+    Multi-signaux - Concentration employé                             FRS-00056
+    Multi-signaux - Concentration employé                             FRS-00049
+    Multi-signaux - Concentration employé                             FRS-00079
+    Multi-signaux - Concentration employé                             FRS-00061
+    Multi-signaux - Concentration employé                             FRS-00028
+    Multi-signaux - Concentration employé                             FRS-00116
+    Multi-signaux - Concentration employé                             FRS-00016
+  Multi-signaux - Fréquence post-création                             FRS-00138
+  Multi-signaux - Fréquence post-création                             FRS-00118
+  Multi-signaux - Fréquence post-création                             FRS-00078
+  Multi-signaux - Fréquence post-création                             FRS-00091
+  Multi-signaux - Fréquence post-création                             FRS-00147
+  Multi-signaux - Fréquence post-création                             FRS-00046
+  Multi-signaux - Fréquence post-création                             FRS-00126
+  Multi-signaux - Fréquence post-création                             FRS-00082
+           Multi-signaux - Montant+timing                             FRS-00144
+           Multi-signaux - Montant+timing                             FRS-00010
+           Multi-signaux - Montant+timing                             FRS-00125
+           Multi-signaux - Montant+timing                             FRS-00095
+           Multi-signaux - Montant+timing                             FRS-00008
+           Multi-signaux - Montant+timing                             FRS-00106
+           Multi-signaux - Montant+timing                             FRS-00136
+           Multi-signaux - Montant+timing                             FRS-00033
+           Multi-signaux - Montant+timing                             FRS-00063
+                      Collusion - directe                     EMP-030/FRS-00151
+                      Collusion - directe                     EMP-031/FRS-00152
+                      Collusion - directe                     EMP-032/FRS-00153
+                      Collusion - directe                     EMP-033/FRS-00154
+                      Collusion - directe                     EMP-034/FRS-00155
+                    Collusion - indirecte FRS-00156/FRS-00157/EMP-035/FRS-00158
+                    Collusion - indirecte FRS-00159/FRS-00160/EMP-036/FRS-00161
+                    Collusion - indirecte FRS-00162/FRS-00163/EMP-037/FRS-00164
 
 --- Test 1 — RIB partagés entre plusieurs fournisseurs ---
 RIB utilisés par plusieurs fournisseurs différents : 17
@@ -215,36 +223,36 @@ RIB utilisés par plusieurs fournisseurs différents : 17
   - RIB partagé par 2 fournisseurs : ['FRS-00124', 'FRS-00146']
 
 --- Test 2 — Montants extrêmes (outliers statistiques) ---
-Seuil (moyenne + 3 écarts-types) : 11,522.07
-Transactions au-delà de ce seuil : 1066
+Seuil (moyenne + 3 écarts-types) : 11,510.23
+Transactions au-delà de ce seuil : 1078
 id_transaction id_fournisseur   montant date_transaction
-    TX-0001899      FRS-00005 13997.861       2024-09-07
-    TX-0001315      FRS-00098 12961.554       2024-09-08
-    TX-0077792      FRS-00126 11570.046       2024-09-09
-    TX-0077791      FRS-00126 12134.073       2024-09-09
-    TX-0000216      FRS-00143 12095.415       2024-09-10
-    TX-0003016      FRS-00034 11693.839       2024-09-11
-    TX-0002859      FRS-00005 11957.652       2024-09-12
-    TX-0000069      FRS-00041 13716.660       2024-09-13
-    TX-0001554      FRS-00079 12735.404       2024-09-13
-    TX-0001580      FRS-00126 11546.385       2024-09-14
+    TX-0001899      FRS-00005 13997.861       2024-09-08
+    TX-0001315      FRS-00098 12961.554       2024-09-09
+    TX-0077792      FRS-00126 11570.046       2024-09-10
+    TX-0077791      FRS-00126 12134.073       2024-09-10
+    TX-0000216      FRS-00143 12095.415       2024-09-11
+    TX-0003016      FRS-00034 11693.839       2024-09-12
+    TX-0002859      FRS-00005 11957.652       2024-09-13
+    TX-0000069      FRS-00041 13716.660       2024-09-14
+    TX-0001554      FRS-00079 12735.404       2024-09-14
+    TX-0001580      FRS-00126 11546.385       2024-09-15
 
 --- Test 3 — Doublons de facturation (montants quasi identiques, même fournisseur, dates proches) ---
-Paires de transactions suspectes (écart <= 3 DT, <= 7 jours, même fournisseur) : 736
+Paires de transactions suspectes (écart <= 3 DT, <= 7 jours, même fournisseur) : 740
 
 --- Test 4 — Fournisseurs payés très peu de temps après création ---
 Transactions survenues <= 2 jours après création du fournisseur : 66
 id_transaction id_fournisseur date_transaction  delai_creation_paiement
-    TX-0001565      FRS-00100       2024-09-05                        1
-    TX-0008051      FRS-00035       2024-11-09                        1
-    TX-0010105      FRS-00035       2024-11-09                        1
-    TX-0010070      FRS-00035       2024-11-10                        2
-    TX-0007841      FRS-00035       2024-11-10                        2
-    TX-0007039      FRS-00070       2024-11-28                        0
-    TX-0008285      FRS-00070       2024-11-29                        1
-    TX-0011811      FRS-00081       2024-12-16                        0
-    TX-0010895      FRS-00081       2024-12-17                        1
-    TX-0011636      FRS-00081       2024-12-17                        1
+    TX-0001565      FRS-00100       2024-09-06                        1
+    TX-0008051      FRS-00035       2024-11-10                        1
+    TX-0010105      FRS-00035       2024-11-10                        1
+    TX-0010070      FRS-00035       2024-11-11                        2
+    TX-0007841      FRS-00035       2024-11-11                        2
+    TX-0007039      FRS-00070       2024-11-29                        0
+    TX-0008285      FRS-00070       2024-11-30                        1
+    TX-0011811      FRS-00081       2024-12-17                        0
+    TX-0010895      FRS-00081       2024-12-18                        1
+    TX-0011636      FRS-00081       2024-12-18                        1
 
 ==============================================================================
 6. RÉSUMÉ ET VERDICT
