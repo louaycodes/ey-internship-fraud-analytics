@@ -1,5 +1,4 @@
 output_tunidistrib/*.csv
-output_clean/*.csv
 *.pyc
 __pycache__/
 venv/

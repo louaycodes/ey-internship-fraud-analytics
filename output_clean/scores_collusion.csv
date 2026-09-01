@@ -1,0 +1,23 @@
+id,type,label,degre,betweenness,communaute_id,suspect_collusion
+EMP-035,employe,Amira Mansour,2,0.009523809523809525,0,oui
+FRS-00156,fournisseur,Fournisseur Collusion 156,1,0.0,0,oui
+FRS-00157,fournisseur,Fournisseur Collusion 157,2,0.009523809523809525,0,oui
+FRS-00158,fournisseur,Fournisseur Collusion 158,1,0.0,0,oui
+EMP-036,employe,Meriem Trabelsi,2,0.009523809523809525,1,oui
+FRS-00159,fournisseur,Fournisseur Collusion 159,1,0.0,1,oui
+FRS-00160,fournisseur,Fournisseur Collusion 160,2,0.009523809523809525,1,oui
+FRS-00161,fournisseur,Fournisseur Collusion 161,1,0.0,1,oui
+EMP-037,employe,Wided Gharbi,2,0.009523809523809525,2,oui
+FRS-00162,fournisseur,Fournisseur Collusion 162,1,0.0,2,oui
+FRS-00163,fournisseur,Fournisseur Collusion 163,2,0.009523809523809525,2,oui
+FRS-00164,fournisseur,Fournisseur Collusion 164,1,0.0,2,oui
+EMP-030,employe,Salma Hamdi,1,0.0,3,oui
+FRS-00151,fournisseur,Fournisseur Collusion 151,1,0.0,3,oui
+EMP-031,employe,Sami Bahri,1,0.0,4,oui
+FRS-00152,fournisseur,Fournisseur Collusion 152,1,0.0,4,oui
+EMP-032,employe,Youssef Jlassi,1,0.0,5,oui
+FRS-00153,fournisseur,Fournisseur Collusion 153,1,0.0,5,oui
+EMP-033,employe,Fares Bouzid,1,0.0,6,oui
+FRS-00154,fournisseur,Fournisseur Collusion 154,1,0.0,6,oui
+EMP-034,employe,Mehdi Bahri,1,0.0,7,oui
+FRS-00155,fournisseur,Fournisseur Collusion 155,1,0.0,7,oui
