@@ -36,20 +36,23 @@ def main():
     )
 
     # 4. Calcul du score de risque V2
-    # Formule : score_final (règles+ML) + 50 si fournisseur suspect + 50 si employé suspect
+    # Normalisation du score_final (0-3) sur une échelle de 0-50
+    df_tx['score_final_normalise'] = (df_tx['score_final'] / 3.0) * 50.0
+
+    # Formule : score_final_normalise + 50 si fournisseur suspect + 50 si employé suspect
     bonus_fournisseur = np.where(df_tx['fournisseur_suspect_collusion'] == 'oui', 50, 0)
     bonus_employe = np.where(df_tx['employe_suspect_collusion'] == 'oui', 50, 0)
     
-    df_tx['score_risque_v2'] = df_tx['score_final'] + bonus_fournisseur + bonus_employe
+    df_tx['score_risque_v2'] = df_tx['score_final_normalise'] + bonus_fournisseur + bonus_employe
     
     # Plafond à 100
     df_tx['score_risque_v2'] = df_tx['score_risque_v2'].clip(upper=100)
 
     # 5. Calcul du niveau de risque V2
     def get_niveau_v2(score):
-        if score < 30: return 'Faible'
-        elif score < 60: return 'Moyen'
-        elif score < 85: return 'Élevé'
+        if score < 25: return 'Faible'
+        elif score < 50: return 'Moyen'
+        elif score < 75: return 'Élevé'
         else: return 'Critique'
 
     df_tx['niveau_risque_final_v2'] = df_tx['score_risque_v2'].apply(get_niveau_v2)
