@@ -1,0 +1,40 @@
+
+====================================
+TEST AVEC n_estimators = 500
+====================================
+Seed 1: Rappel Global=27.6%, Rappel Multi=28.6%, Alertes=156
+Seed 42: Rappel Global=33.6%, Rappel Multi=42.9%, Alertes=156
+Seed 100: Rappel Global=22.4%, Rappel Multi=31.4%, Alertes=157
+Seed 2024: Rappel Global=22.4%, Rappel Multi=28.6%, Alertes=156
+Seed 7: Rappel Global=24.1%, Rappel Multi=31.4%, Alertes=156
+
+SYNTHÈSE STATISTIQUE n_estimators=500:
+              seed  rappel_global  rappel_multi  precision     alertes
+count     5.000000       5.000000      5.000000   5.000000    5.000000
+mean    434.800000      26.034483     32.571429  19.337743  156.200000
+std     889.260198       4.737459      5.924698   3.543269    0.447214
+min       1.000000      22.413793     28.571429  16.560510  156.000000
+25%       7.000000      22.413793     28.571429  16.666667  156.000000
+50%      42.000000      24.137931     31.428571  17.948718  156.000000
+75%     100.000000      27.586207     31.428571  20.512821  156.000000
+max    2024.000000      33.620690     42.857143  25.000000  157.000000
+
+====================================
+TEST AVEC n_estimators = 1000
+====================================
+Seed 1: Rappel Global=27.6%, Rappel Multi=34.3%, Alertes=156
+Seed 42: Rappel Global=27.6%, Rappel Multi=34.3%, Alertes=156
+Seed 100: Rappel Global=23.3%, Rappel Multi=31.4%, Alertes=156
+Seed 2024: Rappel Global=25.0%, Rappel Multi=34.3%, Alertes=156
+Seed 7: Rappel Global=24.1%, Rappel Multi=31.4%, Alertes=156
+
+SYNTHÈSE STATISTIQUE n_estimators=1000:
+              seed  rappel_global  rappel_multi  precision  alertes
+count     5.000000       5.000000      5.000000   5.000000      5.0
+mean    434.800000      25.517241     33.142857  18.974359    156.0
+std     889.260198       1.984632      1.564922   1.475752      0.0
+min       1.000000      23.275862     31.428571  17.307692    156.0
+25%       7.000000      24.137931     31.428571  17.948718    156.0
+50%      42.000000      25.000000     34.285714  18.589744    156.0
+75%     100.000000      27.586207     34.285714  20.512821    156.0
+max    2024.000000      27.586207     34.285714  20.512821    156.0
