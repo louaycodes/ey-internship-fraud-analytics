@@ -6,9 +6,9 @@
 Détecter des schémas de fraude transactionnelle et de collusion fournisseur-employé au sein d'une entreprise fictive de distribution (TuniDistrib SA). Ce projet de stage simule une mission de conseil EY en utilisant des données synthétiques complexes (injection de fraudes contrôlées) pour développer un pipeline de détection multi-niveaux.
 
 ## État actuel
-- **Dernière étape complétée :** Niveau 3 (Graphe de collusion) terminé et validé. Détection réussie des fraudes directes et indirectes. Nettoyage du projet effectué.
-- **Prochaine étape prévue :** (À définir - potentiellement restitution/dashboarding Power BI).
-- **Date de dernière mise à jour :** 31 Août 2026
+- **Dernière étape complétée :** Audit complet du pipeline (cohérence bout-en-bout, anti-fuite, validation des chiffres, vérité terrain) et nettoyage structurel des fichiers de sortie terminés.
+- **Prochaine étape prévue :** Tests de robustesse du modèle (généralisation sur nouvelles données, stabilité, sensibilité des seuils).
+- **Date de dernière mise à jour :** 3 Septembre 2026
 
 ## Architecture du pipeline
 1. ✅ **Génération des données** (`scripts/01_generation/generateData.py`) : Création des tables brutes avec injection du journal de fraude.
@@ -20,31 +20,34 @@ Détecter des schémas de fraude transactionnelle et de collusion fournisseur-em
 
 ## Structure des dossiers
 - `/data/raw/` : Données brutes et `journal_fraudes_injectees.csv` (la "vérité terrain").
-- `/data/clean/` : Fichiers intermédiaires propres (`transactions_scorees.csv`, `fournisseurs_clean.csv`).
-- `/output_clean/` : Résultats finaux et exports enrichis (`scores_collusion.csv`, `transactions_scorees_final.csv`).
+- `/data/clean/` : Fichiers intermédiaires propres (`fournisseurs_clean.csv`, `employes_clean.csv`).
+- `/output_clean/` : Résultats finaux. Contient `transactions_scorees_regles.csv` (règles), `transactions_scorees_ml.csv` (ML), `scores_collusion.csv` (Graphe), et le livrable final unique `transactions_scorees.csv`.
+- `/output_clean/archive/` : Anciens fichiers de sortie versionnés (_v2, _v3, _final) archivés pour éviter toute confusion.
 - `/notebooks/` : Analyses avancées (ML et Graphes).
-- `/scripts/` : Pipeline d'ingénierie de données (génération, nettoyage, règles de base).
+- `/scripts/` : Pipeline d'ingénierie de données (génération, nettoyage, détection).
 - `/reports/figures/` : Visualisations et graphiques finaux.
-
 ## Schéma des données clés
-- **`transactions_scorees_final.csv`** : Transactions avec features ML, scores de règles (`score_fraude_regles`), score ML (`score_fraude_ml`), et flags d'anomalies.
-- **`fournisseurs_clean.csv` / `employes_clean.csv`** : Référentiels entités avec adresses et téléphones normalisés.
-- **`journal_fraudes_injectees.csv`** : Source de vérité listant les ID et types de fraudes injectées (RIB modifiés, montants anormaux, collusion, etc.).
-- **`scores_collusion.csv`** : Résultat du Niveau 3, liste les entités appartenant à un cluster de collusion identifié par graphe.
+Le fichier consolidé final **`transactions_scorees.csv`** contient 19 colonnes :
+- **Métadonnées** : `id_transaction`, `date_transaction`, `id_fournisseur`, `montant`, `type_depense`, `mode_paiement`, `numero_facture`.
+- **Acteurs internes** : `id_employe_initiateur`, `id_employe_validateur`, `statut_validation`.
+- **Signaux Règles & ML** : `regle_rib_partage`, `regle_montant_anormal`, `regle_doublon_facture`, `regle_creation_tardive`, `prediction_ml` (Isolation Forest : -1 = Anomalie, 0/1 = Normal).
+- **Signaux Collusion** : `fournisseur_suspect_collusion`, `employe_suspect_collusion` (oui/non).
+- **Scoring Final** : `score_risque` (0-100), `niveau_risque` (Faible, Moyen, Élevé, Critique).
 
+Les référentiels d'entités sont dans `fournisseurs_clean.csv` et `employes_clean.csv`. La vérité terrain est dans `journal_fraudes_injectees.csv`.
 ## Décisions techniques importantes à ne pas oublier
 - **Anti-Leakage (ML)** : Les scores métier (Niveau 1) sont exclus des features d'entraînement de l'Isolation Forest pour éviter la fuite de données et assurer une détection purement comportementale.
 - **Score Hybride** : Le modèle final combine le score des règles métier (fort pour les typologies connues) et le score ML (fort pour les anomalies subtiles/multidimensionnelles).
 - **Stratégie Graphe (G_suspect)** : Le graphe complet contient trop de bruit (transactions normales). On filtre d'abord sur un lien de *contact physique* (adresse ou téléphone partagé), puis on inclut les transactions *uniquement* entre les nœuds suspects. C'est indispensable pour que Louvain détecte les collusions indirectes.
-
+- **Validation (Nuance "Faux Positif")** : Un "faux positif pur" signifie qu'une transaction est totalement déconnectée d'un signal de fraude. Si un fournisseur a commis une fraude sur la transaction A, remonter ses autres transactions B et C n'est pas un faux positif d'un point de vue alerte métier, même si, au sens strict du journal, l'injection n'a touché que la transaction A.
 ## Résultats clés obtenus jusqu'ici
 - **ML & Règles (Niveaux 1-2)** : Détectent très bien les fraudes transactionnelles isolées, mais échouent sur les cas de collusion (0/8 détectés) car le comportement unitaire semble légitime.
 - **Graphes (Niveau 3)** : Le graphe filtré `G_suspect` permet à l'algorithme de Louvain de détecter **100% des clusters de collusion injectés (8/8)**, sans aucun faux positif parmi les coïncidences naturelles testées.
 
 ## Pièges déjà rencontrés (pour ne pas les refaire)
+- **Confusion des versions (V2/V3/Final)** : L'utilisation de suffixes (`_v2`, `_v3`, `_final`) pour les fichiers de sortie a créé de l'ambiguïté sur lequel utiliser dans Power BI. *Solution* : Consolidation en un fichier unique `transactions_scorees.csv` avec renommage des étapes intermédiaires en `_regles` et `_ml`. Les anciens fichiers sont dans `/archive/`.
 - **Collisions aléatoires du générateur** : Le générateur créait des doublons fortuits d'adresse (ex: FRS-00117 ↔ EMP-001) liés au paradoxe des anniversaires. *Solution* : Toujours vérifier manuellement par rapport au `coincidences_log.csv` et au journal des fraudes avant d'assumer une anomalie.
 - **Bruit transactionnel dans les graphes** : Exécuter Louvain sur le graphe complet disperse les cas de collusion indirecte dans des communautés trop larges. *Solution* : Le filtrage par arêtes de contact (`G_suspect`) est obligatoire.
-
 ## Comment reprendre le travail
 1. Activer l'environnement Python : `source .venv/bin/activate`
 2. Les scripts de base sont dans `/scripts/`, mais tout le pipeline a déjà tourné.
