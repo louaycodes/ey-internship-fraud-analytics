@@ -28,18 +28,19 @@ Détecter des schémas de fraude transactionnelle et de collusion fournisseur-em
 
 ## Structure des dossiers
 - **data/raw/** : Données brutes et journal des fraudes
-- **output_clean/** : Dossier canonique de référence unique contenant toutes les données traitées et scorées (y compris le livrable final unique `transactions_scorees.csv` et les données archivées sous `archive/`)
-- **scripts/** : Orchestration et logique modulaire
-  - 01_generation/ : Génération des données simulées
-  - 02_diagnostic/ : Évaluation initiale des données
-  - 03_cleaning/ : Nettoyage et normalisation
-  - 04_detection/ : Règles métier, ML (Isolation Forest), et graphes de collusion
+- **output_clean/** : Dossier canonique de référence unique contenant toutes les données traitées et scorées (y compris le livrable final unique `transactions_scorees.csv`).
+  - archive/ : Stockage des anciens fichiers de sortie pour historique
+- **scripts/** : 
+  - 01_generation/ : Scripts de génération et d'injection des données
+  - 02_diagnostic/ : Analyse exploratoire
+  - 03_cleaning/ : Scripts de nettoyage (`clean.py`)
+  - 04_detection/ : Logique métier et ML (`detection_regles.py`, `ml_features.py`, `collusion_graph.py`, `final_consolidation.py`)
   - 05_execution/ : Point d'entrée de l'orchestration (`run_pipeline.py`)
   - 06_validation/ : Scripts d'évaluation de la performance (rappel/précision) et de comparaison de modèles
 - **notebooks/** : Notebooks Jupyter d'analyse, d'entraînement ML, et d'exploration de graphes
 - **models/** : Modèles de machine learning exportés (joblib)
 - **reports/** : Tableaux de bord et analyses générées
-- **tests/** : Jeux de données de test et rapports d'expérience (ex: `test1_generalisation`, `test2_stabilite_ml`)
+- **tests/** : Jeux de données de test et rapports d'expérience (ex: `test1_generalisation`, `test2_stabilite_ml`, `test3_sensibilite_seuils`)
 
 ## Schéma des données clés
 Le fichier consolidé final **`transactions_scorees.csv`** contient 19 colonnes :

@@ -1,1 +1,0 @@
-id_transaction,date_transaction,id_fournisseur,montant,devise,type_depense,mode_paiement,id_employe_initiateur,id_employe_validateur,statut_validation,numero_facture,regle_rib_partage,regle_montant_anormal,regle_doublon_facture,regle_creation_tardive,score_risque,niveau_risque

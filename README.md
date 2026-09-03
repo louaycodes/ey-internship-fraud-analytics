@@ -1,49 +1,60 @@
-> ⚠️ **Nouveaux contributeurs et agents IA : lisez impérativement [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md) avant toute action.**
+> ⚠️ **New contributors and AI agents: you MUST read [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md) before taking any action.**
 
 # EY Internship — Fraud Analytics
-Projet réalisé dans le cadre d'un stage au département AI & Data d'EY, sous forme de mission de conseil simulée : le stagiaire joue à la fois le rôle du client (TuniDistrib SA, entreprise fictive de distribution) et du consultant EY chargé de résoudre sa problématique.
+This project was carried out as part of an internship in the AI & Data department at EY, designed as a simulated consulting mission: the intern plays both the role of the client (TuniDistrib SA, a fictional retail company) and the EY consultant tasked with solving their business problem.
 
-**Problématique client :** détection de transactions frauduleuses auprès des fournisseurs (RIB partagés, fournisseurs fictifs, doublons de facturation, anomalies statistiques).
+**Client Problem:** Detection of fraudulent transactions involving suppliers (shared bank accounts, fictitious suppliers, duplicate invoicing, statistical anomalies).
 
-**Approche technique :**
-- Génération de données fictives et reliées (transactions, fournisseurs, employés)
-- Nettoyage et normalisation (RIB, noms fournisseurs, seuils par fournisseur)
-- Détection à 3 niveaux : règles métier, Machine Learning non-supervisé (Isolation Forest), analyse de graphe de collusion
-- Restitution via un dashboard Power BI
+**Technical Approach:**
+- Generation of interconnected synthetic data (transactions, suppliers, employees)
+- Data cleaning and normalization (bank accounts, supplier names, supplier-specific thresholds)
+- 3-Level Detection: Business rules, unsupervised Machine Learning (Isolation Forest), and collusion graph analysis
+- Final reporting via a Power BI dashboard
 
-**Contexte :** projet pédagogique s'appuyant sur des statistiques réelles (EY Global Integrity Report, ACFE Report to the Nations) pour valider la pertinence du sujet.
+**Context:** An educational project grounded in real-world statistics (EY Global Integrity Report, ACFE Report to the Nations) to validate the relevance of the topic.
 
-## Structure du projet
+## Project Structure
 
-La structure du projet suit les standards Python avec une séparation claire entre les données, les scripts et les rapports :
+The project structure follows Python standards with a clear separation between data, scripts, and reports:
 
 ```
 DATA/
-├── README.md                 # Ce fichier
-├── requirements.txt          # Dépendances du projet
-├── .gitignore                # Fichiers ignorés par Git
+├── README.md                 # This file
+├── PROJECT_CONTEXT.md        # Technical context and current state of the project
+├── requirements.txt          # Project dependencies
+├── .gitignore                # Files ignored by Git
 ├── data/                     
-│   ├── raw/                  # Données brutes générées
-│   └── clean/                # Données nettoyées et préparées
+│   └── raw/                  # Generated raw data and fraud logs
+├── output_clean/             # Unique reference folder for processed and scored data
+│   └── archive/              # Archived old files and intermediate states
 ├── scripts/
-│   ├── 01_generation/        # Génération des données fictives et injection des fraudes
-│   ├── 02_diagnostic/        # Analyse exploratoire et diagnostic des données brutes
-│   ├── 03_cleaning/          # Nettoyage et normalisation
-│   └── 04_detection/         # Règles de détection et validation croisée
-└── reports/                  # Rapports générés (ex: rapport de diagnostic)
+│   ├── 01_generation/        # Synthetic data generation and fraud injection
+│   ├── 02_diagnostic/        # Exploratory analysis and raw data diagnostics
+│   ├── 03_cleaning/          # Data cleaning and normalization
+│   ├── 04_detection/         # Business rules, ML feature engineering, and collusion graphs
+│   ├── 05_execution/         # Entry point for pipeline orchestration (run_pipeline.py)
+│   └── 06_validation/        # Performance evaluation scripts (recall/precision)
+├── notebooks/                # Jupyter Notebooks for analysis, ML training, and graph exploration
+├── models/                   # Exported machine learning models (joblib)
+├── reports/                  # Generated dashboards and analyses
+└── tests/                    # Test datasets and experimental reports (e.g., test1_generalisation)
 ```
 
-## Ordre d'exécution
+## Execution Order
 
-Pour relancer l'ensemble du pipeline, exécutez les scripts dans cet ordre (depuis leur dossier respectif ou en adaptant les chemins) :
+To run the entire pipeline, execute the main orchestration script from the root directory:
 
-1. **Génération** : `cd scripts/01_generation && python3 generateData.py`
-   Génère les données de base dans `data/raw/` et injecte les cas de fraude.
-2. **Diagnostic** : `cd scripts/02_diagnostic && python3 diagnosticData.py`
-   Analyse les données brutes et produit un rapport dans `reports/rapport_diagnostic.txt`.
-3. **Nettoyage** : `cd scripts/03_cleaning && python3 clean.py`
-   Normalise les données et exporte les versions propres dans `data/clean/`.
-4. **Détection** : `cd scripts/04_detection && python3 detection_regles.py`
-   Applique les règles métier sur les données propres et attribue un score.
-5. **Validation** : `cd scripts/04_detection && python3 validation_detection.py`
-   Croise les transactions flaguées avec le journal des fraudes pour calculer le rappel et le taux de faux positifs.
+```bash
+python scripts/05_execution/run_pipeline.py --transactions data/raw/transactions.csv --fournisseurs data/raw/fournisseurs.csv --employes data/raw/employes.csv --output output_clean/transactions_scorees.csv
+```
+This single script orchestrates:
+1. **Cleaning**: Normalizes the data.
+2. **Business Rules (Level 1)**: Applies detection rules on the clean data.
+3. **Machine Learning (Level 2)**: Loads the pre-trained Isolation Forest model and makes predictions.
+4. **Collusion Graphs (Level 3)**: Detects collusion clusters using network analysis.
+5. **Consolidation**: Computes the final risk score for each transaction.
+
+To evaluate the pipeline against the injected fraud log:
+```bash
+python scripts/06_validation/run_eval.py
+```
