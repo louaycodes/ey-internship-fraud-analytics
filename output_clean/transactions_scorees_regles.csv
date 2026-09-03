@@ -77469,7 +77469,7 @@ TX-0081431,2026-08-23,FRS-00045,265.762,TND,Transport,Virement,EMP-014,EMP-021,V
 TX-0082705,2026-08-23,FRS-00076,678.601,TND,Prestation de conseil,Virement,EMP-008,EMP-024,Validé,FAC-70301,False,False,False,False,0,Faible
 TX-0079753,2026-08-23,FRS-00041,11234.784,TND,Location matériel,Virement,EMP-018,EMP-004,Validé,FAC-50095,False,False,False,False,0,Faible
 TX-0079754,2026-08-23,FRS-00047,747.6,TND,Transport,Virement,EMP-013,EMP-024,Validé,FAC-96499,False,False,False,False,0,Faible
-TX-0081438,2026-08-23,FRS-00055,601.183,TND,Prestation technique,Chèque,EMP-014,EMP-004,Validé,FAC-68203,False,False,False,False,0,Faible
+TX-0081438,2026-08-23,FRS-00055,601.183,TND,Prestation technique,Chèque,EMP-014,EMP-004,Validé,FAC-68203,True,False,False,False,1,Faible
 TX-0080564,2026-08-23,FRS-00136,358.099,TND,Prestation de conseil,Virement,EMP-016,EMP-007,Validé,FAC-88821,False,False,False,False,0,Faible
 TX-0081169,2026-08-23,FRS-00126,10133.21,TND,Location matériel,Virement,EMP-010,EMP-005,Validé,FAC-52296,False,False,False,False,0,Faible
 TX-0081556,2026-08-23,FRS-00052,1578.643,TND,Location matériel,Virement,EMP-016,EMP-007,Validé,FAC-18693,False,False,False,False,0,Faible
@@ -77497,7 +77497,7 @@ TX-0081509,2026-08-23,FRS-00079,9544.698,TND,Prestation technique,Chèque,EMP-00
 TX-0082625,2026-08-23,FRS-00147,677.006,TND,Prestation technique,Virement,EMP-001,EMP-006,Validé,FAC-70444,False,False,False,False,0,Faible
 TX-0082633,2026-08-23,FRS-00085,415.533,TND,Emballage,Virement,EMP-023,EMP-007,En attente,FAC-90930,False,False,False,False,0,Faible
 TX-0081832,2026-08-23,FRS-00136,560.892,TND,Prestation technique,Chèque,EMP-022,EMP-007,Validé,FAC-18202,False,False,False,False,0,Faible
-TX-0082212,2026-08-23,FRS-00055,246.816,TND,Transport,Virement,EMP-011,EMP-018,Validé,FAC-96086,True,False,False,False,1,Faible
+TX-0082212,2026-08-23,FRS-00055,246.816,TND,Transport,Virement,EMP-011,EMP-018,Validé,FAC-96086,False,False,False,False,0,Faible
 TX-0082203,2026-08-23,FRS-00144,696.258,TND,Transport,Virement,EMP-011,EMP-004,Validé,FAC-83137,False,False,False,False,0,Faible
 TX-0080740,2026-08-23,FRS-00049,1389.61,TND,Transport,Virement,EMP-019,EMP-007,Validé,FAC-58306,False,False,False,False,0,Faible
 TX-0080315,2026-08-23,FRS-00078,428.445,TND,Prestation de conseil,Chèque,EMP-012,EMP-021,Validé,FAC-85715,False,False,False,False,0,Faible

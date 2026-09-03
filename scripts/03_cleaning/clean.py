@@ -33,61 +33,14 @@ import re
 import pandas as pd
 from difflib import SequenceMatcher
 
-INPUT_DIR = "../../data/raw"          # dossier contenant les CSV bruts
-OUTPUT_DIR = "../../data/clean"
-SEUIL_SIMILARITE_NOMS = 0.85   # 0 à 1 ; au-dessus = considéré comme doublon potentiel
-
-os.makedirs(OUTPUT_DIR, exist_ok=True)
-
 def log(msg):
     print(msg)
 
-# =========================================================================
-# 1. CHARGEMENT
-# =========================================================================
-log("=" * 70)
-log("1. CHARGEMENT")
-log("=" * 70)
-
-df_t = pd.read_csv(os.path.join(INPUT_DIR, "transactions.csv"), encoding="utf-8-sig")
-df_f = pd.read_csv(os.path.join(INPUT_DIR, "fournisseurs.csv"), encoding="utf-8-sig")
-df_e = pd.read_csv(os.path.join(INPUT_DIR, "employes.csv"), encoding="utf-8-sig")
-
-log(f"Transactions : {len(df_t):,} lignes")
-log(f"Fournisseurs : {len(df_f):,} lignes")
-log(f"Employés     : {len(df_e):,} lignes")
-
-# =========================================================================
-# 2. NORMALISATION DES RIB
-# =========================================================================
-log("\n" + "=" * 70)
-log("2. NORMALISATION DES RIB")
-log("=" * 70)
-
 def normaliser_rib(rib):
-    """Supprime les espaces, tirets, et met en majuscules. Un même RIB
-    saisi sous des formats différents doit donner la même chaîne normalisée."""
+    """Supprime les espaces, tirets, et met en majuscules."""
     if pd.isna(rib):
         return rib
     return re.sub(r"[\s\-]", "", str(rib)).upper()
-
-n_avant = df_f["rib_iban"].nunique()
-df_f["rib_iban_normalise"] = df_f["rib_iban"].apply(normaliser_rib)
-n_apres = df_f["rib_iban_normalise"].nunique()
-
-log(f"RIB uniques avant normalisation : {n_avant}")
-log(f"RIB uniques après normalisation : {n_apres}")
-if n_avant != n_apres:
-    log(f"-> {n_avant - n_apres} RIB fusionnés (étaient identiques mais mal formatés différemment).")
-else:
-    log("-> Aucun impact : les RIB étaient déjà dans un format cohérent.")
-
-# =========================================================================
-# 3. DÉTECTION DE NOMS DE FOURNISSEURS PROCHES (fuzzy matching, difflib)
-# =========================================================================
-log("\n" + "=" * 70)
-log("3. DÉTECTION DE DOUBLONS DE NOMS FOURNISSEURS (fuzzy matching)")
-log("=" * 70)
 
 def normaliser_nom_basique(nom):
     """Nettoyage léger avant comparaison : minuscules, suppression des
@@ -98,110 +51,116 @@ def normaliser_nom_basique(nom):
     nom = re.sub(r"\s+", " ", nom).strip()
     return nom
 
-df_f["nom_normalise"] = df_f["nom_fournisseur"].apply(normaliser_nom_basique)
+def nettoyer_donnees(df_t, df_f, df_e, output_dir=None, seuil_similarite_noms=0.85):
+    """
+    Nettoie et normalise les données brutes.
+    Retourne : (df_t_clean, df_f_clean, df_e_clean, profil_fournisseur)
+    """
+    df_t = df_t.copy()
+    df_f = df_f.copy()
+    df_e = df_e.copy()
 
-noms = df_f[["id_fournisseur", "nom_fournisseur", "nom_normalise"]].values.tolist()
-paires_suspectes = []
+    log("=" * 70)
+    log("2. NORMALISATION DES RIB")
+    log("=" * 70)
 
-for i in range(len(noms)):
-    for j in range(i + 1, len(noms)):
-        id1, nom_orig1, nom_norm1 = noms[i]
-        id2, nom_orig2, nom_norm2 = noms[j]
-        if nom_norm1 == "" or nom_norm2 == "":
-            continue
-        score = SequenceMatcher(None, nom_norm1, nom_norm2).ratio()
-        if score >= SEUIL_SIMILARITE_NOMS and nom_norm1 != nom_norm2:
-            paires_suspectes.append({
-                "id_fournisseur_1": id1, "nom_1": nom_orig1,
-                "id_fournisseur_2": id2, "nom_2": nom_orig2,
-                "score_similarite": round(score, 3),
-            })
-        elif nom_norm1 == nom_norm2:
-            # Identiques après normalisation légère (ex: "Electro Plus" vs "ELECTRO PLUS SARL")
-            paires_suspectes.append({
-                "id_fournisseur_1": id1, "nom_1": nom_orig1,
-                "id_fournisseur_2": id2, "nom_2": nom_orig2,
-                "score_similarite": 1.0,
-            })
+    n_avant = df_f["rib_iban"].nunique()
+    df_f["rib_iban_normalise"] = df_f["rib_iban"].apply(normaliser_rib)
+    n_apres = df_f["rib_iban_normalise"].nunique()
 
-df_doublons_noms = pd.DataFrame(paires_suspectes).sort_values("score_similarite", ascending=False) \
-    if paires_suspectes else pd.DataFrame(columns=["id_fournisseur_1","nom_1","id_fournisseur_2","nom_2","score_similarite"])
+    log(f"RIB uniques avant normalisation : {n_avant}")
+    log(f"RIB uniques après normalisation : {n_apres}")
 
-log(f"Seuil de similarité utilisé : {SEUIL_SIMILARITE_NOMS}")
-log(f"Paires de fournisseurs potentiellement dupliqués trouvées : {len(df_doublons_noms)}")
-if len(df_doublons_noms) > 0:
-    log(df_doublons_noms.to_string(index=False))
-    log("\n/!\\ Ces paires sont À VÉRIFIER MANUELLEMENT avant fusion — le fuzzy")
-    log("    matching peut avoir des faux positifs (ex: deux vraies entreprises")
-    log("    avec des noms proches par coïncidence).")
-else:
-    log("Aucun doublon de nom détecté à ce seuil. (Normal si le jeu de données")
-    log("généré n'a pas volontairement introduit de variantes de noms.)")
+    log("\n" + "=" * 70)
+    log("3. DÉTECTION DE DOUBLONS DE NOMS FOURNISSEURS (fuzzy matching)")
+    log("=" * 70)
 
-df_doublons_noms.to_csv(os.path.join(OUTPUT_DIR, "doublons_fournisseurs_suspects.csv"), index=False)
+    df_f["nom_normalise"] = df_f["nom_fournisseur"].apply(normaliser_nom_basique)
 
-# =========================================================================
-# 4. VÉRIFICATION ET UNIFORMISATION DES TYPES
-# =========================================================================
-log("\n" + "=" * 70)
-log("4. VÉRIFICATION ET UNIFORMISATION DES TYPES")
-log("=" * 70)
+    noms = df_f[["id_fournisseur", "nom_fournisseur", "nom_normalise"]].values.tolist()
+    paires_suspectes = []
 
-df_t["date_transaction"] = pd.to_datetime(df_t["date_transaction"], errors="coerce")
-df_f["date_creation_fournisseur"] = pd.to_datetime(df_f["date_creation_fournisseur"], errors="coerce")
-df_e["date_embauche"] = pd.to_datetime(df_e["date_embauche"], errors="coerce")
-df_t["montant"] = pd.to_numeric(df_t["montant"], errors="coerce")
+    for i in range(len(noms)):
+        for j in range(i + 1, len(noms)):
+            id1, nom_orig1, nom_norm1 = noms[i]
+            id2, nom_orig2, nom_norm2 = noms[j]
+            if nom_norm1 == "" or nom_norm2 == "":
+                continue
+            score = SequenceMatcher(None, nom_norm1, nom_norm2).ratio()
+            if score >= seuil_similarite_noms and nom_norm1 != nom_norm2:
+                paires_suspectes.append({
+                    "id_fournisseur_1": id1, "nom_1": nom_orig1,
+                    "id_fournisseur_2": id2, "nom_2": nom_orig2,
+                    "score_similarite": round(score, 3),
+                })
+            elif nom_norm1 == nom_norm2:
+                paires_suspectes.append({
+                    "id_fournisseur_1": id1, "nom_1": nom_orig1,
+                    "id_fournisseur_2": id2, "nom_2": nom_orig2,
+                    "score_similarite": 1.0,
+                })
 
-n_dates_invalides = df_t["date_transaction"].isna().sum()
-n_montants_invalides = df_t["montant"].isna().sum()
-log(f"Dates de transaction non convertibles : {n_dates_invalides}")
-log(f"Montants non convertibles             : {n_montants_invalides}")
+    df_doublons_noms = pd.DataFrame(paires_suspectes).sort_values("score_similarite", ascending=False) \
+        if paires_suspectes else pd.DataFrame(columns=["id_fournisseur_1","nom_1","id_fournisseur_2","nom_2","score_similarite"])
 
-if n_dates_invalides > 0 or n_montants_invalides > 0:
-    avant = len(df_t)
-    df_t = df_t.dropna(subset=["date_transaction", "montant"])
-    log(f"-> {avant - len(df_t)} lignes supprimées (données non exploitables).")
-else:
-    log("-> Aucune ligne supprimée, tout est déjà propre.")
+    if output_dir:
+        df_doublons_noms.to_csv(os.path.join(output_dir, "doublons_fournisseurs_suspects.csv"), index=False)
 
-# Suppression des espaces superflus dans les champs texte (saisie manuelle)
-for col in ["nom_fournisseur", "adresse", "email_contact"]:
-    if col in df_f.columns:
-        df_f[col] = df_f[col].astype(str).str.strip()
+    log("\n" + "=" * 70)
+    log("4. VÉRIFICATION ET UNIFORMISATION DES TYPES")
+    log("=" * 70)
 
-# =========================================================================
-# 5. PROFIL STATISTIQUE PAR FOURNISSEUR (utile pour les règles à venir)
-# =========================================================================
-log("\n" + "=" * 70)
-log("5. CALCUL DU PROFIL DE MONTANT HABITUEL PAR FOURNISSEUR")
-log("=" * 70)
-log("(Ce profil servira de base aux règles de détection : un seuil PAR")
-log(" fournisseur plutôt qu'un seuil global, comme discuté précédemment.)")
+    df_t["date_transaction"] = pd.to_datetime(df_t["date_transaction"], errors="coerce")
+    df_f["date_creation_fournisseur"] = pd.to_datetime(df_f["date_creation_fournisseur"], errors="coerce")
+    df_e["date_embauche"] = pd.to_datetime(df_e["date_embauche"], errors="coerce")
+    df_t["montant"] = pd.to_numeric(df_t["montant"], errors="coerce")
 
-profil_fournisseur = df_t.groupby("id_fournisseur")["montant"].agg(
-    montant_moyen="mean", montant_ecart_type="std", nb_transactions="count"
-).reset_index()
-profil_fournisseur["montant_ecart_type"] = profil_fournisseur["montant_ecart_type"].fillna(0)
+    if df_t["date_transaction"].isna().sum() > 0 or df_t["montant"].isna().sum() > 0:
+        df_t = df_t.dropna(subset=["date_transaction", "montant"])
 
-log(f"Profils calculés pour {len(profil_fournisseur)} fournisseurs.")
-log(profil_fournisseur.describe().to_string())
+    for col in ["nom_fournisseur", "adresse", "email_contact"]:
+        if col in df_f.columns:
+            df_f[col] = df_f[col].astype(str).str.strip()
 
-# =========================================================================
-# 6. EXPORT DES FICHIERS PROPRES
-# =========================================================================
-log("\n" + "=" * 70)
-log("6. EXPORT")
-log("=" * 70)
+    log("\n" + "=" * 70)
+    log("5. CALCUL DU PROFIL DE MONTANT HABITUEL PAR FOURNISSEUR")
+    log("=" * 70)
 
-df_t.to_csv(os.path.join(OUTPUT_DIR, "transactions_clean.csv"), index=False)
-df_f.to_csv(os.path.join(OUTPUT_DIR, "fournisseurs_clean.csv"), index=False)
-df_e.to_csv(os.path.join(OUTPUT_DIR, "employes_clean.csv"), index=False)
-profil_fournisseur.to_csv(os.path.join(OUTPUT_DIR, "profil_montant_fournisseur.csv"), index=False)
+    profil_fournisseur = df_t.groupby("id_fournisseur")["montant"].agg(
+        montant_moyen="mean", montant_ecart_type="std", nb_transactions="count"
+    ).reset_index()
+    profil_fournisseur["montant_ecart_type"] = profil_fournisseur["montant_ecart_type"].fillna(0)
 
-log(f"Fichiers exportés dans : {OUTPUT_DIR}/")
-log("  - transactions_clean.csv")
-log("  - fournisseurs_clean.csv")
-log("  - employes_clean.csv")
-log("  - profil_montant_fournisseur.csv   (moyenne/écart-type par fournisseur)")
-log("  - doublons_fournisseurs_suspects.csv   (à vérifier manuellement)")
-log("\nPrêt pour l'étape suivante : les règles de détection (Niveau 1).")
+    return df_t, df_f, df_e, profil_fournisseur
+
+if __name__ == "__main__":
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    INPUT_DIR = os.path.join(BASE_DIR, "../../data/raw")
+    OUTPUT_DIR = os.path.join(BASE_DIR, "../../output_clean")
+    SEUIL_SIMILARITE_NOMS = 0.85   # 0 à 1 ; au-dessus = considéré comme doublon potentiel
+
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+
+    log("=" * 70)
+    log("1. CHARGEMENT")
+    log("=" * 70)
+
+    df_t_raw = pd.read_csv(os.path.join(INPUT_DIR, "transactions.csv"), encoding="utf-8-sig")
+    df_f_raw = pd.read_csv(os.path.join(INPUT_DIR, "fournisseurs.csv"), encoding="utf-8-sig")
+    df_e_raw = pd.read_csv(os.path.join(INPUT_DIR, "employes.csv"), encoding="utf-8-sig")
+
+    df_t_clean, df_f_clean, df_e_clean, profil = nettoyer_donnees(
+        df_t_raw, df_f_raw, df_e_raw, output_dir=OUTPUT_DIR, seuil_similarite_noms=SEUIL_SIMILARITE_NOMS
+    )
+
+    log("\n" + "=" * 70)
+    log("6. EXPORT")
+    log("=" * 70)
+
+    df_t_clean.to_csv(os.path.join(OUTPUT_DIR, "transactions_clean.csv"), index=False)
+    df_f_clean.to_csv(os.path.join(OUTPUT_DIR, "fournisseurs_clean.csv"), index=False)
+    df_e_clean.to_csv(os.path.join(OUTPUT_DIR, "employes_clean.csv"), index=False)
+    profil.to_csv(os.path.join(OUTPUT_DIR, "profil_montant_fournisseur.csv"), index=False)
+    
+    log(f"Fichiers exportés dans : {OUTPUT_DIR}/")
+    log("Prêt pour l'étape suivante : les règles de détection (Niveau 1).")

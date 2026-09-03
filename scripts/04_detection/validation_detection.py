@@ -8,12 +8,12 @@ import os
 import pandas as pd
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-INPUT_DIR = os.path.join(BASE_DIR, "../../data/clean")
+INPUT_DIR = os.path.join(BASE_DIR, "../../output_clean")
 JOURNAL_PATH = os.path.join(BASE_DIR, "../../data/raw", "journal_fraudes_injectees.csv")
 
 # ── Chargement ──────────────────────────────────────────────────────
 scorees = pd.read_csv(
-    os.path.join(INPUT_DIR, "transactions_scorees.csv"),
+    os.path.join(INPUT_DIR, "transactions_scorees_regles.csv"),
     parse_dates=["date_transaction"],
 )
 journal = pd.read_csv(JOURNAL_PATH)

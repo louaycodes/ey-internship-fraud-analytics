@@ -27,15 +27,17 @@ Détecter des schémas de fraude transactionnelle et de collusion fournisseur-em
 * Toute la logique métier est désormais consolidée de bout-en-bout. Le prochain objectif pourrait être d'industrialiser ce pipeline ou de l'intégrer avec une base de données / un outil de BI (PowerBI).
 
 ## Structure des dossiers
-- `models/` : Contient les objets exportés du ML (`isolation_forest_model.joblib`, `standard_scaler.joblib`).
-- `run_pipeline.py` : Script principal orchestrant l'intégralité du pipeline de bout-en-bout.
-- `/data/raw/` : Données brutes et `journal_fraudes_injectees.csv` (la "vérité terrain").
-- `/data/clean/` : Fichiers intermédiaires propres (`fournisseurs_clean.csv`, `employes_clean.csv`).
-- `/output_clean/` : Résultats finaux. Contient `transactions_scorees_regles.csv` (règles), `transactions_scorees_ml.csv` (ML), `scores_collusion.csv` (Graphe), et le livrable final unique `transactions_scorees.csv`.
-- `/output_clean/archive/` : Anciens fichiers de sortie versionnés (_v2, _v3, _final) archivés pour éviter toute confusion.
-- `/notebooks/` : Analyses avancées (ML et Graphes).
-- `/scripts/` : Pipeline d'ingénierie de données (génération, nettoyage, détection).
-- `/reports/figures/` : Visualisations et graphiques finaux.
+- **data/raw/** : Données brutes et journal des fraudes
+- **output_clean/** : Dossier canonique de référence unique contenant toutes les données traitées et scorées (y compris le livrable final unique `transactions_scorees.csv` et les données archivées sous `archive/`)
+- **scripts/** : Orchestration et logique modulaire
+  - 01_generation/ : Génération des données simulées
+  - 02_diagnostic/ : Évaluation initiale des données
+  - 03_cleaning/ : Nettoyage et normalisation
+  - 04_detection/ : Règles métier, ML (Isolation Forest), et graphes de collusion
+  - 05_execution/ : Point d'entrée de l'orchestration (`run_pipeline.py`)
+- **notebooks/** : Notebooks Jupyter d'analyse, d'entraînement ML, et d'exploration de graphes
+- **models/** : Modèles de machine learning exportés (joblib)
+- **reports/** : Tableaux de bord et analyses générées.
 
 ## Schéma des données clés
 Le fichier consolidé final **`transactions_scorees.csv`** contient 19 colonnes :

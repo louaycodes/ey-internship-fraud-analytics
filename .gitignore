@@ -1,4 +1,4 @@
 output_tunidistrib/*.csv
 *.pyc
 __pycache__/
-venv/
+venv/.venv/
