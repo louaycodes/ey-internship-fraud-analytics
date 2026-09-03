@@ -29,10 +29,12 @@ import numpy as np
 import pandas as pd
 from datetime import datetime, timedelta
 
+import os
+
 # =========================================================================
 # CONFIGURATION — MODIFIER CES VALEURS SELON LE VOLUME SOUHAITÉ
 # =========================================================================
-SEED = 42
+SEED = int(os.environ.get("TUNIDISTRIB_SEED", 42))
 N_FOURNISSEURS = 150            # ex: augmenter à 500 pour plus de diversité
 N_EMPLOYES = 25
 N_MOIS = 24                     # profondeur d'historique (24 = 2 ans, cohérent avec la Note de Cadrage)
@@ -43,7 +45,7 @@ TRANSACTIONS_PAR_MOIS_ECART = 300      # variation aléatoire autour de la moyen
 # 1 048 576 lignes par feuille, mais devient très lent à ouvrir au-delà
 # de quelques centaines de milliers de lignes formatées)
 OUTPUT_FORMAT = "csv"           # "csv" ou "xlsx"
-OUTPUT_DIR = "../../data/raw"
+OUTPUT_DIR = os.environ.get("TUNIDISTRIB_OUTPUT", "../../data/raw")
 
 random.seed(SEED)
 np.random.seed(SEED)

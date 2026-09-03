@@ -35,9 +35,11 @@ Détecter des schémas de fraude transactionnelle et de collusion fournisseur-em
   - 03_cleaning/ : Nettoyage et normalisation
   - 04_detection/ : Règles métier, ML (Isolation Forest), et graphes de collusion
   - 05_execution/ : Point d'entrée de l'orchestration (`run_pipeline.py`)
+  - 06_validation/ : Scripts d'évaluation de la performance (rappel/précision) et de comparaison de modèles
 - **notebooks/** : Notebooks Jupyter d'analyse, d'entraînement ML, et d'exploration de graphes
 - **models/** : Modèles de machine learning exportés (joblib)
-- **reports/** : Tableaux de bord et analyses générées.
+- **reports/** : Tableaux de bord et analyses générées
+- **tests/** : Jeux de données de test et rapports d'expérience (ex: `test1_generalisation`)
 
 ## Schéma des données clés
 Le fichier consolidé final **`transactions_scorees.csv`** contient 19 colonnes :
@@ -61,6 +63,7 @@ Les référentiels d'entités sont dans `fournisseurs_clean.csv` et `employes_cl
 - **Confusion des versions (V2/V3/Final)** : L'utilisation de suffixes (`_v2`, `_v3`, `_final`) pour les fichiers de sortie a créé de l'ambiguïté sur lequel utiliser dans Power BI. *Solution* : Consolidation en un fichier unique `transactions_scorees.csv` avec renommage des étapes intermédiaires en `_regles` et `_ml`. Les anciens fichiers sont dans `/archive/`.
 - **Collisions aléatoires du générateur** : Le générateur créait des doublons fortuits d'adresse (ex: FRS-00117 ↔ EMP-001) liés au paradoxe des anniversaires. *Solution* : Toujours vérifier manuellement par rapport au `coincidences_log.csv` et au journal des fraudes avant d'assumer une anomalie.
 - **Bruit transactionnel dans les graphes** : Exécuter Louvain sur le graphe complet disperse les cas de collusion indirecte dans des communautés trop larges. *Solution* : Le filtrage par arêtes de contact (`G_suspect`) est obligatoire.
+- **Évaluation de Généralisation (Test 1)** : Lors de la comparaison entre le modèle de référence et le nouveau modèle, une erreur consistait à comparer les pourcentages calculés deux fois sur le nouveau jeu, donnant l'illusion d'une perfection absolue (les chiffres sont sortis exactement pareils, 95.2% vs 95.2%). *Solution* : Toujours comparer avec le script de validation stricte `compare_exact.py` qui charge en simultané les deux journaux et compte de façon brute les numérateurs et dénominateurs.
 ## Comment reprendre le travail
 1. Activer l'environnement Python : `source .venv/bin/activate`
 2. Les scripts de base sont dans `/scripts/`, mais tout le pipeline a déjà tourné.

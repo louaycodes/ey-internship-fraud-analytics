@@ -1,0 +1,42 @@
+﻿id_employe,nom_employe,poste,adresse_personnelle,telephone,date_embauche
+EMP-001,Marwen Bahri,Assistant Achats,"18 Rue Charles de Gaulle, Gabès",+216 21 761 957,2023-06-03
+EMP-002,Sami Sassi,Comptable Fournisseurs,"52 Rue du Lac Léman, Menzah",+216 26 176 376,2020-11-05
+EMP-003,Walid Ferjani,Assistant Comptable,"113 Rue Charles de Gaulle, Sfax",+216 21 665 709,2020-02-03
+EMP-004,Wided Rekik,Responsable Comptabilité,"61 Avenue Habib Bourguiba, Gafsa",+216 20 348 214,2023-08-09
+EMP-005,Slim Sassi,Directeur Administratif et Financier,"118 Avenue Mohamed V, Ben Arous",+216 21 536 726,2018-06-23
+EMP-006,Walid Cherif,Comptable Fournisseurs,"28 Avenue Habib Bourguiba, Manouba",+216 24 251 351,2018-09-06
+EMP-007,Emna Zoghlami,Assistant Achats,"105 Avenue Habib Bourguiba, Monastir",+216 28 185 888,2019-02-12
+EMP-008,Emna Jlassi,Comptable Fournisseurs,"50 Avenue de Carthage, Nabeul",+216 27 152 733,2021-02-12
+EMP-009,Rim Trabelsi,Assistant Achats,"85 Rue de Marseille, Nabeul",+216 21 935 988,2019-02-18
+EMP-010,Youssef Hamdi,Directeur Administratif et Financier,"57 Avenue Taïeb Mhiri, Sfax",+216 27 650 140,2019-08-05
+EMP-011,Emna Ferjani,Comptable Fournisseurs,"59 Avenue Habib Bourguiba, Sfax",+216 27 694 384,2021-06-09
+EMP-012,Hichem Trabelsi,Assistant Achats,"111 Avenue Habib Bourguiba, Monastir",+216 26 563 613,2023-12-10
+EMP-013,Wided Guesmi,Responsable Comptabilité,"8 Rue du Lac Léman, Ben Arous",+216 24 462 347,2021-12-01
+EMP-014,Youssef Rekik,Assistant Achats,"96 Rue Charles de Gaulle, Nabeul",+216 24 509 682,2018-06-12
+EMP-015,Hichem Belhaj,Comptable Fournisseurs,"52 Avenue de la Liberté, Monastir",+216 25 283 959,2022-03-18
+EMP-016,Mehdi Cherif,Comptable Fournisseurs,"72 Avenue Taïeb Mhiri, Nabeul",+216 28 860 504,2024-09-24
+EMP-017,Amira Bahri,Directeur Administratif et Financier,"99 Rue de Marseille, Manouba",+216 24 290 428,2020-07-04
+EMP-018,Slim Guesmi,Assistant Comptable,"114 Avenue de la Liberté, Ben Arous",+216 29 883 738,2019-07-01
+EMP-019,Hichem Sassi,Responsable Achats,"9 Avenue Taïeb Mhiri, Gabès",+216 26 262 151,2019-06-30
+EMP-020,Emna Sassi,Responsable Achats,"11 Avenue Mohamed V, Gafsa",+216 29 796 492,2019-05-05
+EMP-021,Rim Bouzid,Comptable Fournisseurs,"48 Rue Ibn Khaldoun, Sfax",+216 26 267 225,2018-07-19
+EMP-022,Walid Ferjani,Comptable Fournisseurs,"9 Avenue de Carthage, Monastir",+216 24 631 469,2019-04-28
+EMP-023,Salma Gharbi,Assistant Comptable,"34 Avenue Taïeb Mhiri, Manouba",+216 24 828 573,2020-06-16
+EMP-024,Amira Ouertani,Responsable Comptabilité,"15 Avenue de la Liberté, Monastir",+216 28 116 632,2018-01-29
+EMP-025,Fares Gharbi,Contrôleur de Gestion,"81 Rue de Marseille, Nabeul",+216 28 518 104,2023-10-26
+EMP-026,Youssef Cherif,Responsable Achats,"58 Rue Ibn Khaldoun, Monastir",+216 26 592 423,2019-01-16
+EMP-027,Hela Cherif,Comptable Fournisseurs,"58 Rue Ibn Khaldoun, Monastir",+216 27 483 573,2024-06-09
+EMP-028,Rami Jlassi,Responsable Comptabilité,"58 Rue Ibn Khaldoun, Monastir",+216 24 203 551,2024-06-23
+EMP-029,Mehdi Ayari,Contrôleur de Gestion,"58 Rue Ibn Khaldoun, Monastir",+216 21 138 606,2019-11-23
+EMP-030,Amira Nasri,Comptable Fournisseurs,"36 Avenue de Carthage, Tunis",+216 23 712 710,2021-04-10
+EMP-031,Slim Ouertani,Comptable Fournisseurs,"54 Avenue Mohamed V, Menzah",+216 21 453 704,2023-01-09
+EMP-032,Youssef Ferjani,Comptable Fournisseurs,"104 Avenue Habib Bourguiba, Monastir",+216 25 741 349,2019-04-27
+EMP-033,Tarek Hamdi,Comptable Fournisseurs,"58 Rue Charles de Gaulle, Kairouan",+216 26 808 919,2018-10-17
+EMP-034,Salma Ben Ali,Comptable Fournisseurs,"51 Rue du Lac Léman, Kairouan",+216 27 726 643,2024-02-16
+EMP-035,Wided Ben Ali,Comptable Fournisseurs,"25 Avenue de Carthage, Monastir",+216 25 856 507,2019-11-27
+EMP-036,Nabil Hamdi,Comptable Fournisseurs,"106 Rue du Lac Léman, Monastir",+216 29 476 364,2018-08-29
+EMP-037,Yosra Sassi,Comptable Fournisseurs,"118 Avenue Mohamed V, Ariana",+216 23 378 358,2022-12-29
+EMP-038,Nour Gharbi,Comptable Fournisseurs,"27 Avenue Taïeb Mhiri, Sfax",+216 22 839 766,2020-01-01
+EMP-039,Bilel Jlassi,Comptable Fournisseurs,"14 Avenue Mohamed V, Sousse",+216 28 807 729,2020-01-01
+EMP-040,Bilel Jlassi,Comptable Fournisseurs,"30 Avenue Mohamed V, Menzah",+216 22 580 926,2020-01-01
+EMP-041,Salma Ayari,Comptable Fournisseurs,"61 Rue Charles de Gaulle, Nabeul",+216 20 687 504,2020-01-01
