@@ -13,7 +13,7 @@ def consolider_scores(df_tx):
     # et prediction_ml (0 ou 1)
     if "score_final" not in df_tx.columns:
         if "score_risque" in df_tx.columns and "prediction_ml" in df_tx.columns:
-            df_tx["score_final"] = df_tx["score_risque"] + df_tx["prediction_ml"]
+            df_tx["score_final"] = df_tx["score_risque"] + (df_tx["prediction_ml"] * 2)
         else:
             df_tx["score_final"] = 0
 

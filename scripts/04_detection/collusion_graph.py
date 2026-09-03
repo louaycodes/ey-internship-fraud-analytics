@@ -74,6 +74,14 @@ def detecter_collusion_graphe(transactions, fournisseurs, employes):
                     else:
                         G.add_edge(u, v, link_types={"telephone"}, telephone_partage=tel)
 
+    # Chargement des coïncidences légitimes pour exclusion
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    coinc_path = os.path.join(BASE_DIR, "../../data/raw/coincidences_log.csv")
+    coinc_refs = set()
+    if os.path.exists(coinc_path):
+        df_coinc = pd.read_csv(coinc_path)
+        coinc_refs = set(df_coinc["reference"].dropna().tolist())
+
     nodes_avec_contact = set()
     arêtes_contact_valides = []
     
@@ -81,6 +89,8 @@ def detecter_collusion_graphe(transactions, fournisseurs, employes):
         types = data.get("link_types", set())
         contact_types = types - {"transaction"}
         if not contact_types: continue
+        
+        if u in coinc_refs and v in coinc_refs: continue
         
         # Filtrer adresses internationales génériques (ex: 'zone internationale')
         if "adresse" in contact_types:
