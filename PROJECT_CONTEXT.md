@@ -18,7 +18,17 @@ Détecter des schémas de fraude transactionnelle et de collusion fournisseur-em
 5. ✅ **Niveau 2 : Machine Learning (Isolation Forest)** (`notebooks/fraud_detection_isolation_forest.ipynb`) : Détection non-supervisée d'anomalies multidimensionnelles + combinaison avec le score des règles.
 6. ✅ **Niveau 3 : Analyse de Graphes (Collusion)** (`notebooks/graph_collusion_analysis.ipynb`) : Modélisation en graphe `G_suspect` et détection de communautés (Louvain) pour isoler les réseaux de collusion.
 
+## Comment reprendre le travail (Prochaines étapes)
+
+* Le pipeline complet peut désormais être exécuté via une seule commande :
+  ```bash
+  python run_pipeline.py --transactions data/raw/transactions.csv --fournisseurs data/raw/fournisseurs.csv --employes data/raw/employes.csv --output output_clean/transactions_scorees.csv
+  ```
+* Toute la logique métier est désormais consolidée de bout-en-bout. Le prochain objectif pourrait être d'industrialiser ce pipeline ou de l'intégrer avec une base de données / un outil de BI (PowerBI).
+
 ## Structure des dossiers
+- `models/` : Contient les objets exportés du ML (`isolation_forest_model.joblib`, `standard_scaler.joblib`).
+- `run_pipeline.py` : Script principal orchestrant l'intégralité du pipeline de bout-en-bout.
 - `/data/raw/` : Données brutes et `journal_fraudes_injectees.csv` (la "vérité terrain").
 - `/data/clean/` : Fichiers intermédiaires propres (`fournisseurs_clean.csv`, `employes_clean.csv`).
 - `/output_clean/` : Résultats finaux. Contient `transactions_scorees_regles.csv` (règles), `transactions_scorees_ml.csv` (ML), `scores_collusion.csv` (Graphe), et le livrable final unique `transactions_scorees.csv`.
@@ -26,6 +36,7 @@ Détecter des schémas de fraude transactionnelle et de collusion fournisseur-em
 - `/notebooks/` : Analyses avancées (ML et Graphes).
 - `/scripts/` : Pipeline d'ingénierie de données (génération, nettoyage, détection).
 - `/reports/figures/` : Visualisations et graphiques finaux.
+
 ## Schéma des données clés
 Le fichier consolidé final **`transactions_scorees.csv`** contient 19 colonnes :
 - **Métadonnées** : `id_transaction`, `date_transaction`, `id_fournisseur`, `montant`, `type_depense`, `mode_paiement`, `numero_facture`.
