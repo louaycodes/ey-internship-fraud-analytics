@@ -56,7 +56,7 @@ def run_pipeline(fichier_transactions, fichier_fournisseurs, fichier_employes):
     # 4. GRAPHE DE COLLUSION (NIVEAU 3)
     # =========================================================================
     print("\n[4/5] Détection de collusion via les graphes (Niveau 3)...")
-    df_tx = detecter_collusion_graphe(df_tx, df_frs, df_emp)
+    df_tx, df_scores_entites = detecter_collusion_graphe(df_tx, df_frs, df_emp)
 
     # =========================================================================
     # 5. CONSOLIDATION DU SCORE FINAL
@@ -65,7 +65,7 @@ def run_pipeline(fichier_transactions, fichier_fournisseurs, fichier_employes):
     df_final = consolider_scores(df_tx)
         
     print("\n✅ Pipeline terminé avec succès !")
-    return df_final
+    return df_final, df_scores_entites
 
 
 if __name__ == "__main__":
@@ -77,10 +77,15 @@ if __name__ == "__main__":
     
     args = parser.parse_args()
     
-    df_result = run_pipeline(args.transactions, args.fournisseurs, args.employes)
+    df_result, df_scores_entites = run_pipeline(args.transactions, args.fournisseurs, args.employes)
     
     out_dir = os.path.dirname(args.output)
     if out_dir: os.makedirs(out_dir, exist_ok=True)
         
     df_result.to_csv(args.output, index=False)
     print(f"📁 Fichier sauvegardé sous : {args.output}")
+    
+    # Save the entity scores
+    scores_path = os.path.join(out_dir, "scores_collusion.csv") if out_dir else "scores_collusion.csv"
+    df_scores_entites.to_csv(scores_path, index=False)
+    print(f"📁 Export des entités sauvegardé sous : {scores_path}")

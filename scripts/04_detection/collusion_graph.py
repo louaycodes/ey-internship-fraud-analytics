@@ -120,43 +120,68 @@ def detecter_collusion_graphe(transactions, fournisseurs, employes):
     fournisseurs_collusion = set()
     employes_collusion = set()
     
+    entites_data = []
+    
     if len(G_suspect.nodes) > 0:
         communities = louvain_communities(G_suspect, seed=42)
-        for comm in communities:
+        degrees = dict(G_suspect.degree())
+        betweenness = nx.betweenness_centrality(G_suspect)
+        
+        for comm_id, comm in enumerate(communities):
             if len(comm) >= 2:
                 for n in comm:
-                    if G.nodes[n]["type"] == "fournisseur":
+                    node_type = G.nodes[n]["type"]
+                    if node_type == "fournisseur":
                         fournisseurs_collusion.add(n)
                     else:
                         employes_collusion.add(n)
-                        
-    df_tx["fournisseur_suspect_collusion"] = df_tx["id_fournisseur"].apply(lambda x: "oui" if x in fournisseurs_collusion else "non")
+                    
+                    entites_data.append({
+                        "id": n,
+                        "type": node_type,
+                        "degree": degrees.get(n, 0),
+                        "betweenness": betweenness.get(n, 0.0),
+                        "id_communaute": comm_id,
+                        "suspect_collusion": "oui"
+                    })
+                    
+    df_scores_entites = pd.DataFrame(entites_data)
+    if df_scores_entites.empty:
+        df_scores_entites = pd.DataFrame(columns=["id", "type", "degree", "betweenness", "id_communaute", "suspect_collusion"])
     
-    def check_emp_collusion(row):
-        return "oui" if (row.get("id_employe_initiateur") in employes_collusion or 
-                         row.get("id_employe_validateur") in employes_collusion) else "non"
-                         
-    df_tx["employe_suspect_collusion"] = df_tx.apply(check_emp_collusion, axis=1)
+    df_tx["fournisseur_suspect_collusion"] = df_tx["id_fournisseur"].apply(
+        lambda x: "oui" if x in fournisseurs_collusion else "non"
+    )
+    df_tx["employe_suspect_collusion"] = df_tx["id_employe_initiateur"].apply(
+        lambda x: "oui" if x in employes_collusion else "non"
+    )
+    df_tx["employe_suspect_collusion"] = df_tx.apply(
+        lambda row: "oui" if row["id_employe_validateur"] in employes_collusion else row["employe_suspect_collusion"],
+        axis=1
+    )
     
-    nb_frs = df_tx["fournisseur_suspect_collusion"].value_counts().get("oui", 0)
-    print(f"   ✓ {nb_frs:,} transaction(s) impliquant un fournisseur en collusion")
+    print(f"   ✓ {df_tx['fournisseur_suspect_collusion'].value_counts().get('oui', 0)} transaction(s) impliquant un fournisseur en collusion")
     
-    return df_tx
+    return df_tx, df_scores_entites
 
 if __name__ == "__main__":
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    OUTPUT_DIR = os.path.join(BASE_DIR, "../../output_clean")
     OUTPUT_DIR = os.path.join(BASE_DIR, "../../output_clean")
     
     print("=" * 60)
     print("  DÉTECTION DE FRAUDE — GRAPHE DE COLLUSION (Niveau 3)")
     print("=" * 60)
     
-    transactions = pd.read_csv(os.path.join(OUTPUT_DIR, "transactions_scorees_ml.csv"), parse_dates=["date_transaction"])
-    fournisseurs = pd.read_csv(os.path.join(OUTPUT_DIR, "fournisseurs_clean.csv"))
-    employes = pd.read_csv(os.path.join(OUTPUT_DIR, "employes_clean.csv"))
+    transactions_raw = pd.read_csv(os.path.join(OUTPUT_DIR, "transactions_scorees_ml.csv"), parse_dates=["date_transaction"])
+    fournisseurs_raw = pd.read_csv(os.path.join(OUTPUT_DIR, "fournisseurs_clean.csv"))
+    employes_raw = pd.read_csv(os.path.join(OUTPUT_DIR, "employes_clean.csv"))
     
-    transactions = detecter_collusion_graphe(transactions, fournisseurs, employes)
+    transactions, df_scores_entites = detecter_collusion_graphe(transactions_raw, fournisseurs_raw, employes_raw)
     
-    transactions.to_csv(os.path.join(OUTPUT_DIR, "scores_collusion.csv"), index=False)
-    print(f"\n💾 Export sauvegardé sous output_clean/scores_collusion.csv")
+    transactions.to_csv(os.path.join(OUTPUT_DIR, "transactions_scorees_collusion.csv"), index=False)
+    df_scores_entites.to_csv(os.path.join(OUTPUT_DIR, "scores_collusion.csv"), index=False)
+    print(f"\n💾 Exports sauvegardés sous output_clean/transactions_scorees_collusion.csv et scores_collusion.csv")
+    
+    print("\n" + "=" * 60)
+    print("  ✅ Graphes générés avec succès !")
+    print("=" * 60)

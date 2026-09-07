@@ -63,7 +63,7 @@ def consolider_scores(df_tx):
 
 def main():
     base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-    tx_path = os.path.join(base_dir, 'output_clean', 'scores_collusion.csv')
+    tx_path = os.path.join(base_dir, 'output_clean', 'transactions_scorees_collusion.csv')
     journal_path = os.path.join(base_dir, 'data', 'raw', 'journal_fraudes_injectees.csv')
 
     print(f"Chargement de {tx_path}")
